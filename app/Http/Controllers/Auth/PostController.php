@@ -34,23 +34,40 @@ class PostController extends Controller
      */
     public function store(CreateRequest $request)
     {
-        if($file = $request->has('file')){
-            $file = $request->file;
-            $filename = time().$file->getClientOriginalName();
-            $imagepath = public_path() . '/image/posts';  
-            $file->store($imagepath);
-            $gallery = gallery::create([
-                'image' => $filename,
+        try {
+            DB::beginTransaction();
+
+            if($file = $request->has('file')){
+                $file = $request->file;
+                $filename = time().$file->getClientOriginalName();
+                $imagepath = public_path('image/posts');  
+                $file->move($imagepath, $filename);
+                
+                $gallery = gallery::create([
+                    'image' => $filename,
+                ]);
+            }
+            Post::create([
+                'category_id'=> $request->category,
+                'is_publish'=> $request->is_publish,
+                'title'=> $request->title,
+                'description'=> $request->description,
+                'gallery_id'=> $gallery->id,        
+                
             ]);
+            DB::commit();
+    
         }
-        Post::create([
-            'gallery_id'=> $gallery->id, 
-            'category_id'=> $request->category, 
-            'title'=> $request->title,
-            'description'=> $request->description,
-            'is_publish'=> $request->is_publish
-        ]);
-        return $request->all();
+        catch(\Exception $ex){
+            DB::rollBack();
+            dd($ex->getMessage());
+        }
+        
+
+        $request->session()->flash('success','Post Created Successfully');
+
+        return to_route('posts.index');
+        
     }
 
     /**

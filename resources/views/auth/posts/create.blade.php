@@ -41,7 +41,7 @@
                       @csrf
                       <div class="form-group">
                         <label for="exampleInputName1">Title</label>
-                        <input type="text" name="title" class="form-control" id="exampleInputName1" placeholder="title" value=" {{ old('title') }} ">
+                        <input type="text" name="title" class="form-control" id="exampleInputName1" placeholder="title" value=" {{ old('title') }} " required>
                       </div>
                       <div class="form-group">
                         <label>category</label>
@@ -59,7 +59,7 @@
                         <select name="is_publish" class="form-control" required>
                             <option disabled selected>choose option</option>
                             <option @selected( old('is_publish') == 1 ) value="1">publish</option>
-                            <option @selected( old('is_publish') == 0 )value="0">draft</option>
+                            <option @selected( old('is_publish') == 0 ) value="0">draft</option>
                         </select>
                       </div>
                       <div class="form-group">
