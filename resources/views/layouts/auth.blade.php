@@ -328,12 +328,27 @@
   </script>
 
   <script>
+    
+    @if (Session:: has('alert-success'))
     Swal.fire({
       title: "Good job!",
-      text: "You clicked the button!",
+      text: "{{ Session::get('alert-success') }}",
       icon: "success"
     });
-    @if (session:: has('alert-success'))
+    @endif
+    @if (Session:: has('alert-update'))
+    Swal.fire({
+      title: "Update",
+      text: "{{ Session::get('alert-update') }}",
+      icon: "info"
+    });
+    @endif
+    @if (Session:: has('alert-danger'))
+    Swal.fire({
+      title: "Error",
+      text: "{{ Session::get('alert-danger') }}",
+      icon: "error"
+    });
     @endif
   </script>
 </body>

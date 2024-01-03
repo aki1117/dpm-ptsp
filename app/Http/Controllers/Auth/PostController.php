@@ -8,6 +8,7 @@ use App\Models\gallery;
 use Illuminate\Http\Request;
 use App\Models\category;
 use App\Models\post;
+use DB;
 
 class PostController extends Controller
 {
