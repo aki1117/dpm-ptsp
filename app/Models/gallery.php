@@ -6,6 +6,7 @@ use Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+
 class gallery extends Model
 {
     use HasFactory;
@@ -13,8 +14,8 @@ class gallery extends Model
     protected $fillable = ['image'];
 
     protected function image(): Attribute{
-        return new Attribute::make(
+        return Attribute::make(
             get: fn($image) => $this->uploads. $image,
-        )
+        );
     }
 }

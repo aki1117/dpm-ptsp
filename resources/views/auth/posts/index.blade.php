@@ -41,7 +41,7 @@
                             @foreach($posts as $post)
                                 <tr>
                                     <td class="py-1">
-                                        <img src=" {{$posts->gallery->image}}" style="width: 90px alt="image" />
+                                        <img src=" {{ $post->gallery->image }}" style="width: 90px" alt="image" />
                                     </td>
                                     <td> {{ $post->title }} </td>
                                     <td>
@@ -50,9 +50,9 @@
                                     <td> {{ $post->category->name }} </td>
                                     <td> {{ $post->is_publish == 1 ? 'Published' : 'Draft' }} </td>
                                     <td>
-                                        <a href="{{ }}" class="btn btn-sm btn-success"><i class="fas fa-eye"></i></a>
+                                        <a href="" class="btn btn-sm btn-success"><i class="fas fa-eye"></i></a>
                                         <a href="" class="btn btn-sm btn-info"><i class="fa fa-edit"></i></a>
-                                        <a href="" class="btn btn-sm btn-danger"><i class ="fa fa-error"></i></a>
+                                        <a href="" class="btn btn-sm btn-danger"><i class ="fa fa-danger"></i></a>
                                     </td>
                                 </tr>
                             @endforeach
