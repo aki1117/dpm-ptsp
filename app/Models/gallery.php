@@ -2,12 +2,19 @@
 
 namespace App\Models;
 
+use Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class gallery extends Model
 {
     use HasFactory;
-
+    public $uploads ='/images/posts/';
     protected $fillable = ['image'];
+
+    protected function image(): Attribute{
+        return new Attribute::make(
+            get: fn($image) => $this->uploads. $image,
+        )
+    }
 }

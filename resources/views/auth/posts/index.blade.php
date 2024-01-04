@@ -1,5 +1,7 @@
 @extends('layouts.auth')
-
+@section('styles')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+@endsection
 @section('content')
 <div class="main-panel">
     <div class="content-wrapper">
@@ -13,42 +15,49 @@
             </nav>
         </div>
         <div class="row">
-            
-            
+
+
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
+                        @if(count($posts)>0 )
                         <h4 class="card-title">Posts</h4>
                         <p class="card-description"> Add class <code>.table-striped</code>
                         </p>
-                        @if(count($posts)>0 )
+
                         <table class="table table-striped">
                             <thead>
                                 <tr>
                                     <th> Image </th>
                                     <th> Title </th>
                                     <th> Description </th>
+                                    <th> Category </th>
                                     <th> Status </th>
                                     <th> Action </th>
                                 </tr>
                             </thead>
+
                             <tbody>
+                            @foreach($posts as $post)
                                 <tr>
                                     <td class="py-1">
-                                        <img src="../../assets/images/faces-clipart/pic-1.png" alt="image" />
+                                        <img src=" {{$posts->gallery->image}}" style="width: 90px alt="image" />
                                     </td>
-                                    <td> Herman Beck </td>
+                                    <td> {{ $post->title }} </td>
                                     <td>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-success" role="progressbar" style="width: 25%"
-                                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
+                                        {{ Str::limit($post->description, 15, '...') }}
                                     </td>
-                                    <td> $ 77.99 </td>
-                                    <td> May 15, 2015 </td>
+                                    <td> {{ $post->category->name }} </td>
+                                    <td> {{ $post->is_publish == 1 ? 'Published' : 'Draft' }} </td>
+                                    <td>
+                                        <a href="{{ }}" class="btn btn-sm btn-success"><i class="fas fa-eye"></i></a>
+                                        <a href="" class="btn btn-sm btn-info"><i class="fa fa-edit"></i></a>
+                                        <a href="" class="btn btn-sm btn-danger"><i class ="fa fa-error"></i></a>
+                                    </td>
                                 </tr>
-                                
+                            @endforeach
                             </tbody>
+
                         </table>
                         @else
                         <h3 class="text-center text-danger">No posts found</h3>
@@ -56,7 +65,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
     </div>
     @endsection
