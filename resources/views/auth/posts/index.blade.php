@@ -1,6 +1,7 @@
 @extends('layouts.auth')
 @section('styles')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
 @endsection
 @section('content')
 <div class="main-panel">
@@ -25,7 +26,7 @@
                         <p class="card-description"> Add class <code>.table-striped</code>
                         </p>
 
-                        <table class="table table-striped">
+                        <table id="posts-table" class="table table-striped">
                             <thead>
                                 <tr>
                                     <th> Image </th>
@@ -52,7 +53,7 @@
                                     <td>
                                         <a href="" class="btn btn-sm btn-success"><i class="fas fa-eye"></i></a>
                                         <a href="" class="btn btn-sm btn-info"><i class="fa fa-edit"></i></a>
-                                        <a href="" class="btn btn-sm btn-danger"><i class ="fa fa-danger"></i></a>
+                                        <a href="" class="btn btn-sm btn-danger"><i class ="fa fa-trash"></i></a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -68,4 +69,13 @@
 
         </div>
     </div>
+    @endsection
+
+    @section('scripts')
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#posts-table').DataTable();
+        });
+    </script>
     @endsection

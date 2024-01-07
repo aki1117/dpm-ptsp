@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Attribute;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 class gallery extends Model
 {
     use HasFactory;
-    public $uploads ='/images/posts/';
+    public $uploads ='/image/posts/';
     protected $fillable = ['image'];
 
     protected function image(): Attribute{

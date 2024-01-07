@@ -57,7 +57,7 @@ class PostController extends Controller
                 'gallery_id'=> $gallery->id,        
                 
             ]);
-            DB::commit();
+            
     
         }
         catch(\Exception $ex){
@@ -67,8 +67,8 @@ class PostController extends Controller
         
 
         $request->session()->flash('success','Post Created Successfully');
-
-        return to_route('posts.index');
+        return $request->all();
+        // return to_route('posts.index');
         
     }
 
