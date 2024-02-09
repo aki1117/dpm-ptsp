@@ -49,8 +49,8 @@
                             <select name="jk" class="form-control form-control-lg mb-6"
                                 aria-label=".form-control-lg example">
                                 <option value="" disabled selected>Jenis Kelamin</option>
-                                <option value="laki-laki">Laki-Laki</option>
-                                <option value="perempuan">Perempuan</option>
+                                <option @selected( old('jenisKelamin')==1 ) value="1">Laki Laki</option>
+                                <option @selected( old('jenisKelamin')==0 ) value="0">Perempuan</option>
                             </select>
                             <div class="invalid-feedback">
                                 Jenis kelamin harus diIsi.
@@ -113,7 +113,7 @@
                             <label>
                                 <i class='bx bx-id-card'></i>
                             </label>
-                            <input type="text" name="ktp" value="" id="ktp" class="form-control"
+                            <input type="number" name="ktp" value="" id="ktp" class="form-control"
                                 placeholder="Masukkan No.KTP Anda *">
                         </div>
                     </div>

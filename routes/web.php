@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\aduanController;
 use App\Http\Controllers\Auth\DashboardController;
 use App\Http\Controllers\Auth\PostController;
 use App\Http\Controllers\laporanController;
 use App\Http\Controllers\WebsiteController;
 use Illuminate\Support\Facades\Route;
+use Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,4 +35,5 @@ Auth::routes();
 Route::get('/auth/dashboard', [DashboardController::class, 'dashboard'])->name('auth.dahsboard')->middleware('auth');
 Route::resource('auth/posts', PostController::class);
 Route::resource('/laporan', laporanController::class);
+Route::resource('/auth/aduan', aduanController::class);
 

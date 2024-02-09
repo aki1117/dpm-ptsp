@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\lapor;
 use Illuminate\Http\Request;
 use App\Models\jenisLapor;
 use DB;
@@ -31,16 +32,18 @@ class laporanController extends Controller
      */
     public function store(Request $request)
     {
-        DB::beginTransaction();
+        try {
+            DB::beginTransaction();
 
         $request->validate([
             'email' => ['required','email'],
+            'ktp' => ['required'],
         ]);
 
-        jenisLapor::create([
-            'jenis_Lapor_id'=>$request->jenis_Lapor_id	,
+        lapor::create([
+            'jenis_Lapor_id'=>$request->jenis_Lapor_id,
             'name'=> $request->nama, 
-            'jenisKelamin'=> $request->jk,
+            'jk '=> $request->jenisKelamin,
             'rumah'=> $request->alamat_rumah,
             'pekerjaan'=> $request->pekerjaan,
             'kantor'=> $request->alamat_kantor,
@@ -53,11 +56,15 @@ class laporanController extends Controller
             'lokasi'=> $request->lokasi,
             'tujuan_pengaduan'=> $request->tujuan_pengaduan
         ]);
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            dd($th->getMessage());
+        }
 
         DB::commit();
         $request->session()->flash('success','Post Created Successfully');
-        return $request->all();
-        // return to_route('laporan.index');
+        
+        return to_route('laporan.index');
     }
 
     /**

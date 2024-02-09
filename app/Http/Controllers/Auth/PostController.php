@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\Post\CreateRequest;
 use App\Models\gallery;
+use App\Models\lapor;
 use Illuminate\Http\Request;
 use App\Models\category;
+use App\Models\jenisLapor;
 use App\Models\post;
 use DB;
 
@@ -19,6 +21,8 @@ class PostController extends Controller
     {
         $posts = Post::with(['gallery', 'category'])->get();
         return view('auth.posts.index',['posts' => $posts]);
+        // $laporans = lapor::with('jenis')->get();
+        // return view('auth.aduan.index',['laporans' => $laporans]);
     }
 
     /**
@@ -65,10 +69,10 @@ class PostController extends Controller
             dd($ex->getMessage());
         }
         
-
+        DB::commit();
         $request->session()->flash('success','Post Created Successfully');
-        return $request->all();
-        // return to_route('posts.index');
+        
+        return to_route('posts.index');
         
     }
 

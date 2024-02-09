@@ -18,6 +18,15 @@
   <link rel="stylesheet" href="{{ asset('assets/auth/css/style.css') }}">
   <!-- End layout styles -->
   <link rel="shortcut icon" href="{{ asset('assets/auth/images/favicon.ico') }}" />
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   @yield('styles')
 </head>
@@ -51,12 +60,12 @@
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown"
               aria-expanded="false">
-              <div class="nav-profile-img">
+              <!-- <div class="nav-profile-img">
                 <img src="{{ asset('assets/auth/images/faces/face1.jpg') }}" alt="image">
                 <span class="availability-status online"></span>
-              </div>
+              </div> -->
               <div class="nav-profile-text">
-                <p class="mb-1 text-black">David Greymaax</p>
+                <p class="mb-1 text-black">{{Auth::user()->name}}</p>
               </div>
             </a>
             <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
@@ -191,14 +200,8 @@
         <ul class="nav">
           <li class="nav-item nav-profile">
             <a href="#" class="nav-link">
-              <div class="nav-profile-image">
-                <img src="{{ asset('assets/auth/images/faces/face1.jpg') }}" alt="profile">
-                <span class="login-status online"></span>
-                <!--change to offline or busy as needed-->
-              </div>
               <div class="nav-profile-text d-flex flex-column">
-                <span class="font-weight-bold mb-2">David Grey. H</span>
-                <span class="text-secondary text-small">Project Manager</span>
+                <span class="font-weight-bold mb-2">{{ Auth::user()->name }}</span>
               </div>
               <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
             </a>
@@ -224,8 +227,8 @@
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="pages/icons/mdi.html">
-              <span class="menu-title">Icons</span>
+            <a class="nav-link" href="{{ route('aduan.index')}}">
+              <span class="menu-title">Aduan</span>
               <i class="mdi mdi-contacts menu-icon"></i>
             </a>
           </li>
@@ -328,8 +331,8 @@
   </script>
 
   <script>
-    
-    @if (Session:: has('alert-success'))
+
+    @if (Session:: has('success'))
     Swal.fire({
       title: "Good job!",
       text: "{{ Session::get('alert-success') }}",
@@ -350,6 +353,31 @@
       icon: "error"
     });
     @endif
+  </script>
+
+  <script>
+    $(document).ready(function () {
+      $('.DisplayLapor').click(function () {
+        e.preventDefault();
+        Swal.fire({
+          title: "The Internet?",
+          text: "That thing is still around?",
+          icon: "question"
+        });
+      })
+    })
+  </script>
+
+  <script>
+    $(document).on('click', 'delete', function (e) {
+      e.preventDefault();
+      var link = $(this).attr("href");
+      Swal.fire({
+        title: "The Internet?",
+        text: "That thing is still around?",
+        icon: "question"
+      });
+    });
   </script>
 </body>
 

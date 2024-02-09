@@ -39,9 +39,9 @@
     <!-- main nav -->
     <nav class="navbar navbar-expand-lg navbar-light px-0">
       <!-- logo -->
-      <a class="navbar-brand logo" href="index.html">
-        <img loading="lazy" class="logo-default" src="{{ asset('assets/website/images/logo.png') }}" alt="logo">
-        <img loading="lazy" class="logo-white" src="{{ asset('assets/website/images/logo-white.png') }}i" alt="logo">
+      <a class="navbar-brand logo" href="#">
+        <img loading="lazy" class="logo-default" src="{{ asset('assets/website/images/logo.png') }}" alt="logo1">
+        <img loading="lazy" class="logo-white" src="{{ asset('assets/website/images/logo-white.png') }}i" alt="logo2">
       </a>
       <!-- /logo -->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">

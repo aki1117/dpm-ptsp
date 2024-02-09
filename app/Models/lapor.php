@@ -9,8 +9,12 @@ class lapor extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['jenis_Lapor_id', 'name', 'jenisKelamin','rumah','pekerjaan','kantor','email','ktp','phone_number','subjek','isian','tanggal_kejadian','lokasi','tujuan_pengaduan'];
-    public function jenis(){
-        return $this->belongsTo(jenisLapor::class);
+    public const Perempuan = 1;
+    public const Laki = 0;
+
+    protected $fillable = ['jenis_Lapor_id', 'name', 'jenisKelamin', 'rumah', 'pekerjaan', 'kantor', 'email', 'ktp', 'phone_number', 'subjek', 'isian', 'tanggal_kejadian', 'lokasi', 'tujuan_pengaduan'];
+    public function jenis()
+    {
+        return $this->belongsTo(jenisLapor::class,  'jenis_Lapor_id', 'id');
     }
 }
