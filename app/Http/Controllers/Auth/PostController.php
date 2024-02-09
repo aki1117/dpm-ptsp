@@ -5,9 +5,12 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\Post\CreateRequest;
 use App\Models\gallery;
+use App\Models\lapor;
 use Illuminate\Http\Request;
 use App\Models\category;
+use App\Models\jenisLapor;
 use App\Models\post;
+use DB;
 
 class PostController extends Controller
 {
@@ -16,7 +19,10 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('auth.posts.create');
+        $posts = Post::with(['gallery', 'category'])->get();
+        return view('auth.posts.index',['posts' => $posts]);
+        // $laporans = lapor::with('jenis')->get();
+        // return view('auth.aduan.index',['laporans' => $laporans]);
     }
 
     /**
@@ -34,23 +40,40 @@ class PostController extends Controller
      */
     public function store(CreateRequest $request)
     {
-        if($file = $request->has('file')){
-            $file = $request->file;
-            $filename = time().$file->getClientOriginalName();
-            $imagepath = public_path() . '/image/posts';  
-            $file->store($imagepath);
-            $gallery = gallery::create([
-                'image' => $filename,
+        try {
+            DB::beginTransaction();
+
+            if($file = $request->has('file')){
+                $file = $request->file;
+                $filename = time().$file->getClientOriginalName();
+                $imagepath = public_path('image/posts');  
+                $file->move($imagepath, $filename);
+                
+                $gallery = gallery::create([
+                    'image' => $filename,
+                ]);
+            }
+            Post::create([
+                'category_id'=> $request->category,
+                'is_publish'=> $request->is_publish,
+                'title'=> $request->title,
+                'description'=> $request->description,
+                'gallery_id'=> $gallery->id,        
+                
             ]);
+            
+    
         }
-        Post::create([
-            'gallery_id'=> $gallery->id, 
-            'category_id'=> $request->category, 
-            'title'=> $request->title,
-            'description'=> $request->description,
-            'is_publish'=> $request->is_publish
-        ]);
-        return $request->all();
+        catch(\Exception $ex){
+            DB::rollBack();
+            dd($ex->getMessage());
+        }
+        
+        DB::commit();
+        $request->session()->flash('success','Post Created Successfully');
+        
+        return to_route('posts.index');
+        
     }
 
     /**

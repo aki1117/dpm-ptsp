@@ -18,17 +18,29 @@
   <link rel="stylesheet" href="{{ asset('assets/auth/css/style.css') }}">
   <!-- End layout styles -->
   <link rel="shortcut icon" href="{{ asset('assets/auth/images/favicon.ico') }}" />
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   @yield('styles')
 </head>
 
 <body>
   <div class="container-scroller">
-    
+
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo" href="index.html"><img src="{{ asset('assets/auth/images/logo.svg') }}" alt="logo" /></a>
-        <a class="navbar-brand brand-logo-mini" href="index.html"><img src="{{ asset('assets/auth/images/logo-mini.svg') }}" alt="logo" /></a>
+        <a class="navbar-brand brand-logo" href="index.html"><img src="{{ asset('assets/auth/images/logo.svg') }}"
+            alt="logo" /></a>
+        <a class="navbar-brand brand-logo-mini" href="index.html"><img
+            src="{{ asset('assets/auth/images/logo-mini.svg') }}" alt="logo" /></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-stretch">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -46,13 +58,14 @@
         </div>
         <ul class="navbar-nav navbar-nav-right">
           <li class="nav-item nav-profile dropdown">
-            <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-              <div class="nav-profile-img">
+            <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              <!-- <div class="nav-profile-img">
                 <img src="{{ asset('assets/auth/images/faces/face1.jpg') }}" alt="image">
                 <span class="availability-status online"></span>
-              </div>
+              </div> -->
               <div class="nav-profile-text">
-                <p class="mb-1 text-black">David Greymaax</p>
+                <p class="mb-1 text-black">{{Auth::user()->name}}</p>
               </div>
             </a>
             <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
@@ -69,11 +82,13 @@
             </a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-bs-toggle="dropdown"
+              aria-expanded="false">
               <i class="mdi mdi-email-outline"></i>
               <span class="count-symbol bg-warning"></span>
             </a>
-            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+              aria-labelledby="messageDropdown">
               <h6 class="p-3 mb-0">Messages</h6>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item preview-item">
@@ -110,11 +125,13 @@
             </div>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-bs-toggle="dropdown">
+            <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#"
+              data-bs-toggle="dropdown">
               <i class="mdi mdi-bell-outline"></i>
               <span class="count-symbol bg-danger"></span>
             </a>
-            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+              aria-labelledby="notificationDropdown">
               <h6 class="p-3 mb-0">Notifications</h6>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item preview-item">
@@ -160,10 +177,10 @@
             <form method="post" id="logout-form" action="{{ route('logout') }}">
               @csrf
               <a id="logout-button" class="nav-link" href="#">
-              <i class="mdi mdi-power"></i>
-            </a>
+                <i class="mdi mdi-power"></i>
+              </a>
             </form>
-            
+
           </li>
           <li class="nav-item nav-settings d-none d-lg-block">
             <a class="nav-link" href="#">
@@ -171,119 +188,119 @@
             </a>
           </li>
         </ul>
-        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
-        <span class="mdi mdi-menu"></span>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+          data-toggle="offcanvas">
+          <span class="mdi mdi-menu"></span>
         </button>
       </div>
     </nav>
-      <div class="container-fluid page-body-wrapper">
-        <!-- partial:partials/_sidebar.html -->
-        <nav class="sidebar sidebar-offcanvas" id="sidebar">
-          <ul class="nav">
-            <li class="nav-item nav-profile">
-              <a href="#" class="nav-link">
-                <div class="nav-profile-image">
-                  <img src="{{ asset('assets/auth/images/faces/face1.jpg') }}" alt="profile">
-                  <span class="login-status online"></span>
-                  <!--change to offline or busy as needed-->
-                </div>
-                <div class="nav-profile-text d-flex flex-column">
-                  <span class="font-weight-bold mb-2">David Grey. H</span>
-                  <span class="text-secondary text-small">Project Manager</span>
-                </div>
-                <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">
-                <span class="menu-title">Dashboard</span>
-                <i class="mdi mdi-home menu-icon"></i>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-                <span class="menu-title">Basic UI Elements</span>
-                <i class="menu-arrow"></i>
-                <i class="mdi mdi-crosshairs-gps menu-icon"></i>
-              </a>
-              <div class="collapse" id="ui-basic">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
-                </ul>
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_sidebar.html -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+          <li class="nav-item nav-profile">
+            <a href="#" class="nav-link">
+              <div class="nav-profile-text d-flex flex-column">
+                <span class="font-weight-bold mb-2">{{ Auth::user()->name }}</span>
               </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="pages/icons/mdi.html">
-                <span class="menu-title">Icons</span>
-                <i class="mdi mdi-contacts menu-icon"></i>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="pages/forms/basic_elements.html">
-                <span class="menu-title">Forms</span>
-                <i class="mdi mdi-format-list-bulleted menu-icon"></i>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="pages/charts/chartjs.html">
-                <span class="menu-title">Charts</span>
-                <i class="mdi mdi-chart-bar menu-icon"></i>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="pages/tables/basic-table.html">
-                <span class="menu-title">Tables</span>
-                <i class="mdi mdi-table-large menu-icon"></i>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages">
-                <span class="menu-title">Sample Pages</span>
-                <i class="menu-arrow"></i>
-                <i class="mdi mdi-medical-bag menu-icon"></i>
-              </a>
-              <div class="collapse" id="general-pages">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="pages/samples/blank-page.html"> Blank Page </a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/samples/error-404.html"> 404 </a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/samples/error-500.html"> 500 </a></li>
-                </ul>
+              <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">
+              <span class="menu-title">Dashboard</span>
+              <i class="mdi mdi-home menu-icon"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false"
+              aria-controls="ui-basic">
+              <span class="menu-title">Posts</span>
+              <i class="menu-arrow"></i>
+              <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+            </a>
+            <div class="collapse" id="ui-basic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{ route('posts.create')}}">Create Post</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('posts.index')}}">Posts</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('aduan.index')}}">
+              <span class="menu-title">Aduan</span>
+              <i class="mdi mdi-contacts menu-icon"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pages/forms/basic_elements.html">
+              <span class="menu-title">Forms</span>
+              <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pages/charts/chartjs.html">
+              <span class="menu-title">Charts</span>
+              <i class="mdi mdi-chart-bar menu-icon"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pages/tables/basic-table.html">
+              <span class="menu-title">Tables</span>
+              <i class="mdi mdi-table-large menu-icon"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#general-pages" aria-expanded="false"
+              aria-controls="general-pages">
+              <span class="menu-title">Sample Pages</span>
+              <i class="menu-arrow"></i>
+              <i class="mdi mdi-medical-bag menu-icon"></i>
+            </a>
+            <div class="collapse" id="general-pages">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/blank-page.html"> Blank Page </a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/error-404.html"> 404 </a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/error-500.html"> 500 </a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item sidebar-actions">
+            <span class="nav-link">
+              <div class="border-bottom">
+                <h6 class="font-weight-normal mb-3">Projects</h6>
               </div>
-            </li>
-            <li class="nav-item sidebar-actions">
-              <span class="nav-link">
+              <button class="btn btn-block btn-lg btn-gradient-primary mt-4">+ Add a project</button>
+              <div class="mt-4">
                 <div class="border-bottom">
-                  <h6 class="font-weight-normal mb-3">Projects</h6>
+                  <p class="text-secondary">Categories</p>
                 </div>
-                <button class="btn btn-block btn-lg btn-gradient-primary mt-4">+ Add a project</button>
-                <div class="mt-4">
-                  <div class="border-bottom">
-                    <p class="text-secondary">Categories</p>
-                  </div>
-                  <ul class="gradient-bullet-list mt-4">
-                    <li>Free</li>
-                    <li>Pro</li>
-                  </ul>
-                </div>
-              </span>
-            </li>
-          </ul>
-        </nav>
+                <ul class="gradient-bullet-list mt-4">
+                  <li>Free</li>
+                  <li>Pro</li>
+                </ul>
+              </div>
+            </span>
+          </li>
+        </ul>
+      </nav>
 
-@yield('content')
+      @yield('content')
 
-    <footer class="footer">
-      <div class="container-fluid d-flex justify-content-between">
-        <span class="text-muted d-block text-center text-sm-start d-sm-inline-block">Copyright © bootstrapdash.com 2021</span>
-        <span class="float-none float-sm-end mt-1 mt-sm-0 text-end"> Free <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank">Bootstrap admin template</a> from Bootstrapdash.com</span>
-      </div>
-    </footer>
-    <!-- partial -->
-  </div>
-  <!-- main-panel ends -->
+      <footer class="footer">
+        <div class="container-fluid d-flex justify-content-between">
+          <span class="text-muted d-block text-center text-sm-start d-sm-inline-block">Copyright © bootstrapdash.com
+            2021</span>
+          <span class="float-none float-sm-end mt-1 mt-sm-0 text-end"> Free <a
+              href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank">Bootstrap admin
+              template</a> from Bootstrapdash.com</span>
+        </div>
+      </footer>
+      <!-- partial -->
+    </div>
+    <!-- main-panel ends -->
   </div>
   <!-- page-body-wrapper ends -->
   </div>
@@ -306,11 +323,61 @@
   <!-- End custom js for this page -->
   @yield('scripts')
   <script>
-    $(document).ready(function() {
-      $('#logout-button').click(function() {
+    $(document).ready(function () {
+      $('#logout-button').click(function () {
         $('#logout-form').submit();
       })
     })
+  </script>
+
+  <script>
+
+    @if (Session:: has('success'))
+    Swal.fire({
+      title: "Good job!",
+      text: "{{ Session::get('alert-success') }}",
+      icon: "success"
+    });
+    @endif
+    @if (Session:: has('alert-update'))
+    Swal.fire({
+      title: "Update",
+      text: "{{ Session::get('alert-update') }}",
+      icon: "info"
+    });
+    @endif
+    @if (Session:: has('alert-danger'))
+    Swal.fire({
+      title: "Error",
+      text: "{{ Session::get('alert-danger') }}",
+      icon: "error"
+    });
+    @endif
+  </script>
+
+  <script>
+    $(document).ready(function () {
+      $('.DisplayLapor').click(function () {
+        e.preventDefault();
+        Swal.fire({
+          title: "The Internet?",
+          text: "That thing is still around?",
+          icon: "question"
+        });
+      })
+    })
+  </script>
+
+  <script>
+    $(document).on('click', 'delete', function (e) {
+      e.preventDefault();
+      var link = $(this).attr("href");
+      Swal.fire({
+        title: "The Internet?",
+        text: "That thing is still around?",
+        icon: "question"
+      });
+    });
   </script>
 </body>
 

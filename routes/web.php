@@ -1,8 +1,12 @@
 <?php
 
+use App\Http\Controllers\aduanController;
 use App\Http\Controllers\Auth\DashboardController;
 use App\Http\Controllers\Auth\PostController;
+use App\Http\Controllers\laporanController;
+use App\Http\Controllers\WebsiteController;
 use Illuminate\Support\Facades\Route;
+use Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,16 +19,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+// Route::get('/', function () {
     
-    return view('auth.login');
-    // auth()->logout();
-    // return 'home page';
-});
+//     return view('website.index');
+//     // auth()->logout();
+//     // return 'home page';
+// });
+
+Route::get('/', [WebsiteController::class,'home'])->name('home');
+
 
 Auth::routes();
 
 
 Route::get('/auth/dashboard', [DashboardController::class, 'dashboard'])->name('auth.dahsboard')->middleware('auth');
 Route::resource('auth/posts', PostController::class);
+Route::resource('/laporan', laporanController::class);
+Route::resource('/auth/aduan', aduanController::class);
 

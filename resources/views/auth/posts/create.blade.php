@@ -16,7 +16,7 @@
               <h3 class="page-title"> Posts</h3>
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="#">Posts</a></li>
+                  <li class="breadcrumb-item"><a href="{{ route('posts.index')}}">Posts</a></li>
                   <li class="breadcrumb-item active" aria-current="page">Create Post</li>
                 </ol>
               </nav>
@@ -41,7 +41,7 @@
                       @csrf
                       <div class="form-group">
                         <label for="exampleInputName1">Title</label>
-                        <input type="text" name="title" class="form-control" id="exampleInputName1" placeholder="title" value=" {{ old('title') }} ">
+                        <input type="text" name="title" class="form-control" id="exampleInputName1" placeholder="title" value=" {{ old('title') }} " required>
                       </div>
                       <div class="form-group">
                         <label>category</label>
@@ -59,7 +59,7 @@
                         <select name="is_publish" class="form-control" required>
                             <option disabled selected>choose option</option>
                             <option @selected( old('is_publish') == 1 ) value="1">publish</option>
-                            <option @selected( old('is_publish') == 0 )value="0">draft</option>
+                            <option @selected( old('is_publish') == 0 ) value="0">draft</option>
                         </select>
                       </div>
                       <div class="form-group">
@@ -91,7 +91,7 @@
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 <script>
   $(document).ready(function() {
-    $('#summernote').summernote();
+    $('#summernote').summernote('code', '<text H>');
   });
 </script>
 @endsection
