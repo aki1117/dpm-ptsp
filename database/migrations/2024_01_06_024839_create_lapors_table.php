@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('pekerjaan');
             $table->text('kantor');
             $table->string('email');
-            $table->integer('ktp');
-            $table->integer('phone_number');
+            $table->string('ktp')->length(17);;
+            $table->string('phone_number')->length(12);;
             $table->string('subjek');
             $table->text('isian');
             $table->date('tanggal_kejadian');

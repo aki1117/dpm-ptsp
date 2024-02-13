@@ -4,9 +4,10 @@ use App\Http\Controllers\aduanController;
 use App\Http\Controllers\Auth\DashboardController;
 use App\Http\Controllers\Auth\PostController;
 use App\Http\Controllers\laporanController;
+use App\Http\Controllers\profileController;
 use App\Http\Controllers\WebsiteController;
 use Illuminate\Support\Facades\Route;
-use Auth;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,11 @@ use Auth;
 // });
 
 Route::get('/', [WebsiteController::class,'home'])->name('home');
+Route::get('/profile/sejarah', [profileController::class,'index'])->name('index');
+Route::get('/profile/moto', [profileController::class,'moto'])->name('moto');
+Route::get('/profile/pejabat', [profileController::class,'pejabat'])->name('pejabat');
+Route::get('/profile/sambutan', [profileController::class,'sambutan'])->name('sambutan');
+Route::get('/profile/struktur', [profileController::class,'struktur'])->name('struktur');
 
 
 Auth::routes();

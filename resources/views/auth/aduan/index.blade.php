@@ -3,30 +3,47 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+
 @endsection
 @section('content')
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-xl">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <h5 class="modal-title" id="exampleModalLabel">User Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="/aduan" method="POST" id="editform">
-                {{ method_field('PUT') }}
-                <div class="modal-body">
-                    <div class="modal-group">
-                        <label> Name </label>
-                        <input type="text" id="name" name="name" class="form-control">
-                    </div>
-                </div>
-            </form>
+            <div class="modal-body">
+                <table id="modaldata" class="table table-striped table-hover table-bordered">
+                    <thead>
+                        <tr>
+                            <th> Nama </th>
+                            <th> Jenis Kelamin </th>
+                            <th> Alamat rumah </th>
+                            <th> Pekerjaan </th>
+                            <th> Alamat kantor </th>
+                            <th> Email </th>
+                            <th> No KTP </th>
+                            <th> No Telp </th>
+                            <th> Jenis Aduan </th>
+                            <th> judul Laporan </th>
+                            <th> Isi Laporan </th>
+                            <th> Tanggal </th>
+                            <th> Lokasi </th>
+                            <th> Tujuan pengaduan </th>
+                        </tr>
+                    <tbody>
+                        <tr></tr>
+                    </tbody>
+                </table>
+            </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
@@ -92,20 +109,13 @@
                                     </td>
                                     <td> {{ $laporan->jenis->name }} </td>
                                     <td> {{ $laporan->subjek }} </td>
-                                    <td> {{ Str::limit($laporan->isian, '50', '...') }} </td>
+                                    <td> {{ $laporan->isian }} </td>
                                     <td> {{ $laporan->tanggal_kejadian }} </td>
                                     <td> {{ $laporan->lokasi}} </td>
                                     <td>
                                         {{ $laporan->tujuan_pengaduan }}
                                     </td>
-
-
-                                    <td>
-                                        <!-- <a href="" class="btn btn-sm btn-success" id=".DisplayLapor"><i
-                                                class="fas fa-eye"></i></a> -->
-                                        <a href="#" class="btn btn-success edit">EDIT</a>
-                                        <a href="" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
-                                    </td>
+                                    <td><button class="btn btn-info">View</button></td>
                                 </tr>
 
                                 @endforeach
@@ -115,6 +125,7 @@
                         @else
                         <h3 class="text-center text-danger">No posts found</h3>
                         @endif
+
                     </div>
                 </div>
             </div>
@@ -127,23 +138,21 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
     <script>
         $(document).ready(function() {
-            var table = $('#posts-table').DataTable({"scrollX": true});
-        
+            var table = $('#posts-table').DataTable({
+                "scrollX": true
+            });
 
-            table.on('click', '.edit', function() {
-                $tr = $(this).closest('tr');
-                if ($($tr).hasClass('child')) {
-                    $tr = tr.prev('.parent');
-                }
-
-                var data = table.row($tr).data();
-                console.log(data);
-
-                $('#name').val(data[1]);
-
-                $('#editForm').attr('action', '/auth/aduan/'+data[0])
-                $('#editModal').modal('show');
-            })
+        });
+    </script>
+    <script>
+        jQuery(document).ready(function($) {
+            //jQuery Functionality
+            $('#posts-table').DataTable();
+            $(document).on('click', '#posts-table tbody tr button', function() {
+                $("#modaldata tbody tr").html("");
+                $("#modaldata tbody tr").html($(this).closest("tr").html());
+                $("#exampleModal").modal("show");
+            });
         });
     </script>
     <!-- <script>
@@ -151,5 +160,5 @@
             "scrollX": true
         });
     </script> -->
-   
+
     @endsection

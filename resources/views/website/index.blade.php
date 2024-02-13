@@ -53,7 +53,7 @@ Start About Section
             <div class="col-lg-6">
                 <!-- section title -->
                 <div class="title text-center">
-                    <h2>What Do We Offer</h2>
+                    <h2>Pelayanan Kami</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur
                         adipisicing elit. Voluptates, earum. </p>
                     <div class="border"></div>
@@ -128,11 +128,11 @@ Start About Section
 
         <div class="row">
 
-            <div class="col-md-6 mb-4 mb-md-0">
-                <img loading="lazy" src="{{ asset('assets/website/images/about/about-2.png') }}" class="img-fluid"
+            <div class="col-md-8 mb-4 mb-md-0">
+                <img loading="lazy" src="{{ asset('assets/website/images/about/about-2.jpg') }}" class="img-fluid"
                     alt="">
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4 row align-items-center" >
                 <ul class="checklist">
                     <li>Pelayanan Informasi</li>
                     <li>Validasi</li>
@@ -140,7 +140,7 @@ Start About Section
                     <li>Output</li>
                     <li> Subsistem Pengawasan</li>
                 </ul>
-                <a href="about.html" class="btn btn-main mt-20">Learn More</a>
+                
             </div>
         </div> <!-- End row -->
     </div> <!-- End container -->
@@ -251,11 +251,11 @@ Start Counter Section
 							<!-- /client info -->
 							<!-- client photo -->
 							<div class="client-thumb">
-								<img loading="lazy" src="{{ asset('assets/website/images/client-logo/clients-1.jpg') }}" class="img-fluid" alt="">
+								<img loading="lazy" src="{{ asset('assets/website/images/client-logo/clients-1.png') }}" class="img-fluid" alt="">
 							</div>
 							<div class="client-meta">
-								<h3>William Martin</h3>
-								<span>CEO , Company Name</span>
+								<h3>H. ASGAR, SE</h3>
+								<span>Sekretaris Dinas</span>
 							</div>
 							<!-- /client photo -->
 						</div>
@@ -271,11 +271,11 @@ Start Counter Section
 							<!-- /client info -->
 							<!-- client photo -->
 							<div class="client-thumb">
-								<img loading="lazy" src="{{ asset('assets/website/images/client-logo/clients-2.jpg') }}" class="img-fluid" alt="">
+								<img loading="lazy" src="{{ asset('assets/website/images/client-logo/clients-2.png') }}" class="img-fluid" alt="">
 							</div>
 							<div class="client-meta">
-								<h3>Emma Harrison</h3>
-								<span>CEO , Company Name</span>
+								<h3>Nusrin, S.Sos., MM</h3>
+								<span>Kepala Bidang Tenaga Kerja</span>
 							</div>
 							<!-- /client photo -->
 						</div>
@@ -291,11 +291,31 @@ Start Counter Section
 							<!-- /client info -->
 							<!-- client photo -->
 							<div class="client-thumb">
-								<img loading="lazy" src="{{ asset('assets/website/images/client-logo/clients-3.jpg') }}" class="img-fluid" alt="">
+								<img loading="lazy" src="{{ asset('assets/website/images/client-logo/clients-3.png') }}" class="img-fluid" alt="">
 							</div>
 							<div class="client-meta">
-								<h3>Alexander Lucas</h3>
-								<span>CEO , Company Name</span>
+								<h3>ASRUL SANI KADIR, S.Pd, M.Si</h3>
+								<span>Kabid. Perizinan</span>
+							</div>
+							<!-- /client photo -->
+						</div>
+						<!-- /testimonial single -->
+
+                        <!-- testimonial single -->
+						<div class="item text-center">
+							<i class="tf-ion-chatbubbles"></i>
+							<!-- client info -->
+							<div class="client-details">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum nulla, soluta dolorum. Eos earum, magni asperiores, unde corporis labore, enim, voluptatum officiis voluptates alias natus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, officia. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, quia?</p>
+							</div>
+							<!-- /client info -->
+							<!-- client photo -->
+							<div class="client-thumb">
+								<img loading="lazy" src="{{ asset('assets/website/images/client-logo/clients-4.png') }}" class="img-fluid" alt="">
+							</div>
+							<div class="client-meta">
+								<h3>HAMIDA, SH.,MM</h3>
+								<span>Kepala Bidang Transimigrasi</span>
 							</div>
 							<!-- /client photo -->
 						</div>
