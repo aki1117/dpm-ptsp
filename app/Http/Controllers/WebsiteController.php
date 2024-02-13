@@ -19,4 +19,8 @@ class WebsiteController extends Controller
         // return view('auth/posts/create')->with('categories', $categories);
         return view('website.laporan',['laporans'=>$laporans]);
     }
+
+    public function contact() {
+        return view("website.contact");
+    }
 }

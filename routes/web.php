@@ -28,6 +28,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', [WebsiteController::class,'home'])->name('home');
+Route::get('/contact', [WebsiteController::class,'contact'])->name('contact');
 Route::get('/profile/sejarah', [profileController::class,'index'])->name('index');
 Route::get('/profile/moto', [profileController::class,'moto'])->name('moto');
 Route::get('/profile/pejabat', [profileController::class,'pejabat'])->name('pejabat');
