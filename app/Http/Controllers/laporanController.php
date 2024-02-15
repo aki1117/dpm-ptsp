@@ -16,7 +16,7 @@ class laporanController extends Controller
     {
         $laporans = jenisLapor::all();
         // return view('auth/posts/create')->with('categories', $categories);
-        return view('website.laporan',['laporans'=>$laporans]);
+        return view('website.pelayanan.laporan',['laporans'=>$laporans]);
     }
 
     /**
