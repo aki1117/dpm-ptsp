@@ -5,10 +5,10 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h2>Moto & Tujuan OPD</h2>
+                <h2>Peta Rencana Detail Tata Ruang Kab Konkep</h2>
                 <ol class="breadcrumb header-bradcrumb justify-content-center">
                     <li class="breadcrumb-item"><a href="index.html" class="text-white">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Moto & Tujuan OPD</li>
+                    <li class="breadcrumb-item active" aria-current="page">Peta Rencana Detail Tata Ruang Kab Konkep</li>
                 </ol>
             </div>
         </div>
@@ -29,28 +29,7 @@
                             <div class="section-title two">
                                 <img src="https://dpmptsp.konkepkab.go.id/public/assetsa/img/it-startup/baner.jpg" alt="Design">
                                 <br><br>
-                                <span class="sub-title">Moto & Tujuan OPD</span>
-                                <h2>DPMPTSP</h2>
-                            </div>
-                            <p>
-                            <h3>Visi</h3>
-                            "Menjadi lembaga yang mampu mewujudkan penanaman modal yang berdaya saing menuju Riau sebagai daerah tujuan investasi"
-                            </p>
-                            <h3>Misi</h3>
-                            <ul>
-                                <li>
-                                    <i class="flaticon-checkmark"></i>
-                                    <h6> Mewujudkan iklim penanaman modal yang kondusif</h6>
-                                </li>
-                                <li>
-                                    <i class="flaticon-checkmark"></i>
-                                    <h6> Meningkatkan daya tarik penanaman modal</h6>
-                                </li>
-                                <li>
-                                    <i class="flaticon-checkmark"></i>
-                                    <h6> Mewujudkan pelayanan terpadu satu pintu yang prima</h6>
-                                </li>
-                            </ul>
+                               
                         </div>
                     </div>
                     <!-- <div class="col-lg-6">

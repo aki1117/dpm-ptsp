@@ -155,7 +155,7 @@ Start Call To Action
             <div class="col-xl-6 col-lg-8 text-center">
                 <h2>Sistem Lapor</h2>
                 <p>Layanan Aspirasi dan Pengaduan Masyarakat secara Online</p>
-                <a href="contact.html" class="btn btn-main">Kirim Aduan</a>
+                <a href="{{ route('laporan.index') }}" class="btn btn-main">Kirim Aduan</a>
             </div>
         </div> <!-- End row -->
     </div> <!-- End container -->

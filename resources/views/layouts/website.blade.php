@@ -402,18 +402,18 @@
           <ul class="navbar-nav ml-auto text-center">
 
             <li class="nav-item ">
-              <a class="nav-link" href="#">Homepage</a>
+              <a class="nav-link" href="{{ route('home') }}">Homepage</a>
             </li>
             <li class="nav-item dropdown active">
               <a class="nav-link dropdown-toggle" href="#!" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Profile <i class="tf-ion-chevron-down"></i>
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="index.html">Sejarah singkat</a></li>
-                <li><a class="dropdown-item" href="onepage-slider.html">Moto dan tujuan OPD</a></li>
-                <li><a class="dropdown-item" href="onepage-text.html">Struktur organisasi</a></li>
-                <li><a class="dropdown-item" href="onepage-text.html">Sambutan kepala dinas </a></li>
-                <li><a class="dropdown-item" href="onepage-text.html">Pejabat Struktural</a></li>
+                <li><a class="dropdown-item" href="{{ route('sejarah') }}">Sejarah singkat</a></li>
+                <li><a class="dropdown-item" href="{{ route('moto') }}">Moto dan tujuan OPD</a></li>
+                <li><a class="dropdown-item" href="{{ route('struktur') }}">Struktur organisasi</a></li>
+                <li><a class="dropdown-item" href="{{ route('sambutan') }}">Sambutan kepala dinas </a></li>
+                <li><a class="dropdown-item" href="{{ route('pejabat') }}">Pejabat Struktural</a></li>
               </ul>
             </li>
             <li class="nav-item dropdown active">
@@ -421,8 +421,8 @@
                 Layanan <i class="tf-ion-chevron-down"></i>
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="index.html">Pengaduan</a></li>
-                <li><a class="dropdown-item" href="onepage-slider.html">Perizinan Online</a></li>
+                <li><a class="dropdown-item" href="{{ route('laporan.index') }}">Pengaduan</a></li>
+                <li><a class="dropdown-item" href="{{ route('perizinan') }}">Perizinan Online</a></li>
                 <!-- <li><a class="dropdown-item" href="onepage-text.html">SP (Standar Pelayanan)</a></li>
                 <li><a class="dropdown-item" href="onepage-text.html">SOP</a></li> -->
               </ul>
@@ -432,9 +432,9 @@
                 Media dan Publikasi <i class="tf-ion-chevron-down"></i>
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="index.html">Berita</a></li>
-                <li><a class="dropdown-item" href="onepage-slider.html">Galeri foto</a></li>
-                <li><a class="dropdown-item" href="onepage-text.html">Peta Rencana</a></li>
+                <li><a class="dropdown-item" href="{{ route('berita') }}">Berita</a></li>
+                <li><a class="dropdown-item" href="{{ route('galeri') }}">Galeri foto</a></li>
+                <li><a class="dropdown-item" href="{{ route('peta') }}">Peta Rencana</a></li>
 
               </ul>
             </li>
@@ -442,10 +442,10 @@
               <a class="nav-link" href="team.html">SKM</a>
             </li> -->
             <li class="nav-item ">
-              <a class="nav-link" href="pricing.html">Contact</a>
+              <a class="nav-link" href="{{ route('contact') }}">Contact</a>
             </li>
             <li class="nav-item ">
-              <a class="nav-link" href="pricing.html">Login</a>
+              <a class="nav-link" href="{{ route('login') }}">Login</a>
             </li>
             <!-- <li class="nav-item dropdown active">
               <a class="nav-link dropdown-toggle" href="#!" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
