@@ -8,9 +8,9 @@ use App\Models\jenisLapor;
 class WebsiteController extends Controller
 {
     public function home(){
-        $laporans = jenisLapor::all();
+        $posts = post::where('is_publish', post::Published)->get();
         // return view('auth/posts/create')->with('categories', $categories);
-        return view('website.index',['laporans'=>$laporans]);
+        return view('website.index',['posts'=>$posts]);
     }
 
     public function create()

@@ -7,6 +7,7 @@ use App\Http\Controllers\laporanController;
 use App\Http\Controllers\mediaController;
 use App\Http\Controllers\perizinanController;
 use App\Http\Controllers\profileController;
+use App\Http\Controllers\SPController;
 use App\Http\Controllers\WebsiteController;
 use Illuminate\Support\Facades\Route;
 
@@ -38,14 +39,18 @@ Route::get('/profile/sambutan', [profileController::class,'sambutan'])->name('sa
 Route::get('/profile/struktur', [profileController::class,'struktur'])->name('struktur');
 Route::get('/media/galeri', [mediaController::class,'galeri'])->name('galeri');
 Route::get('/media/berita', [mediaController::class,'berita'])->name('berita');
+Route::get('/media/berita/{post}', [mediaController::class,'show'])->name('posts.berita');
 Route::get('/media/petarencana', [mediaController::class,'peta'])->name('peta');
 Route::get('/pelayanan/perizinan', [perizinanController::class,'perizinan'])->name('perizinan');
+Route::get('/pelayanan/perizinan/download/{id}', [perizinanController::class, 'downloadFile'])->name('sp.download');
 
 Auth::routes();
 
 
 Route::get('/auth/dashboard', [DashboardController::class, 'dashboard'])->name('auth.dahsboard')->middleware('auth');
 Route::resource('auth/posts', PostController::class);
+Route::resource('auth/SP', SPController::class);
+Route::get('/auth/SP/download/{id}', [SPController::class, 'download'])->name('sp.download');
 Route::resource('/pelayanan/laporan', laporanController::class);
 Route::resource('/auth/aduan', aduanController::class);
 

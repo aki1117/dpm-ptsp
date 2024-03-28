@@ -380,6 +380,11 @@
         margin-left: 0px;
       }
     }
+
+    .navbar {
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
   </style>
 </head>
 
@@ -387,11 +392,11 @@
   <header class="navigation fixed-top sticky-header">
     <div class="container">
       <!-- main nav -->
-      <nav class="navbar navbar-expand-sm navbar-light px-0">
+      <nav class="navbar navbar-expand-sm navbar-light py-0">
         <!-- logo -->
-        <a class="navbar-brand logo" href="#">
-          <img loading="lazy" class="logo-default" src="https://dpmptsp.konkepkab.go.id/public/assetsa//img/logoptsp2.png" alt="logo1"style="width:100px;height:50px;">
-          <img loading="lazy" class="logo-white" src="https://dpmptsp.konkepkab.go.id/public/assetsa//img/logoptsp2.png" alt="logo2" style="width:100px;height:50px;">
+        <a class="navbar-brand logo py-0" href="#">
+          <img loading="lazy" class="logo-default" src="https://dpmptsp.konkepkab.go.id/public/assetsa//img/logoptsp2.png" alt="logo1" style="width:120px;height:70px;">
+          <img loading="lazy" class="logo-white" src="https://dpmptsp.konkepkab.go.id/public/assetsa//img/logoptsp2.png" alt="logo2" style="width:120px;height:70px;">
         </a>
         <!-- /logo -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
@@ -422,7 +427,7 @@
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li><a class="dropdown-item" href="{{ route('laporan.index') }}">Pengaduan</a></li>
-                <li><a class="dropdown-item" href="{{ route('perizinan') }}">Perizinan Online</a></li>
+                <li><a class="dropdown-item" href="{{ route('perizinan') }}">Standar Pelayanan</a></li>
                 <!-- <li><a class="dropdown-item" href="onepage-text.html">SP (Standar Pelayanan)</a></li>
                 <li><a class="dropdown-item" href="onepage-text.html">SOP</a></li> -->
               </ul>

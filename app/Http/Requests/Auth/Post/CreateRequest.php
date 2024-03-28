@@ -25,7 +25,7 @@ class CreateRequest extends FormRequest
             'title' => ['required', 'min:2', 'max:20', 'string'],
             'category' => ['required'],
             'is_publish' => ['required'],
-            'file' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'dimensions:max_width=1900, max_height=1200'],
+            'file' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', ],
             'description' => ['required', 'min:10', 'max:5000', 'string']
         ];
     }
