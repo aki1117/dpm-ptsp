@@ -352,7 +352,7 @@ Start Blog Section
             
                 <div class="post-item">
                     <div class="media-wrapper">
-                        <img loading="lazy" src="{{ $post->gallery->image }}" alt="amazing caves coverimage" class="img-fluid">
+                        <img loading="lazy" src="{{ $post->gallery->image }}" alt="amazing caves coverimage"   width="420" height="300">
                     </div>
 
                     <div class="content">

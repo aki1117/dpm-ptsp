@@ -31,7 +31,7 @@
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo" href="#"><img src="https://dpmptsp.konkepkab.go.id/public/assetsa//img/logoptsp2.png" alt="logo" style="height: 70px;" /></a>
+        <a class="navbar-brand brand-logo" href="#"><img src="{{ asset('assets/website/images/logo.png') }}" alt="logo" style="height: 70px;" /></a>
         <a class="navbar-brand brand-logo-mini" href="index.html"><img src="{{ asset('assets/auth/images/logo-mini.svg') }}" alt="logo" /></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-stretch">
@@ -97,7 +97,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="{{ route('auth.dashboard')}}">
               <span class="menu-title">Dashboard</span>
               <i class="mdi mdi-home menu-icon"></i>
             </a>

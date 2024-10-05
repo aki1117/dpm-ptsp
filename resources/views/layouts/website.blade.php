@@ -395,8 +395,8 @@
       <nav class="navbar navbar-expand-sm navbar-light py-0">
         <!-- logo -->
         <a class="navbar-brand logo py-0" href="#">
-          <img loading="lazy" class="logo-default" src="https://dpmptsp.konkepkab.go.id/public/assetsa//img/logoptsp2.png" alt="logo1" style="width:120px;height:70px;">
-          <img loading="lazy" class="logo-white" src="https://dpmptsp.konkepkab.go.id/public/assetsa//img/logoptsp2.png" alt="logo2" style="width:120px;height:70px;">
+          <img loading="lazy" class="logo-default" src="{{ asset('assets/website/images/icon/logoptsp.png') }}" alt="logo1" style="width:120px;height:70px;">
+          <img loading="lazy" class="logo-white" src="{{ asset('assets/website/images/icon/logoptsp.png') }}" alt="logo2" style="width:120px;height:70px;">
         </a>
         <!-- /logo -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">

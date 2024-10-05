@@ -27,7 +27,7 @@
             <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
                 <div class="card">
                     <div class="team-image-wrapper">
-                        <img class="team-member-image" src="https://dpmptsp.konkepkab.go.id/public/assetsa/img/digital/c1.png">
+                        <img class="team-member-image" src="{{ asset('assets/website/images/client-logo/clients-1.png') }}">
                     </div>
                     <p class="text-blk name">
                         H. ASGAR, SE
@@ -55,7 +55,7 @@
             <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
                 <div class="card">
                     <div class="team-image-wrapper">
-                        <img class="team-member-image" src="https://dpmptsp.konkepkab.go.id/public/assetsa/img/digital/c2.png">
+                        <img class="team-member-image" src="{{ asset('assets/website/images/client-logo/clients-2.png') }}">
                     </div>
                     <p class="text-blk name">
                     Nusrin, S.Sos., MM
@@ -83,7 +83,7 @@
             <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
                 <div class="card">
                     <div class="team-image-wrapper">
-                        <img class="team-member-image" src="https://dpmptsp.konkepkab.go.id/public/assetsa/img/digital/c3.png">
+                        <img class="team-member-image" src="{{ asset('assets/website/images/client-logo/clients-3.png') }}">
                     </div>
                     <p class="text-blk name">
                     ASRUL SANI KADIR, S.Pd, M.Si
@@ -111,7 +111,7 @@
             <<div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
                 <div class="card">
                     <div class="team-image-wrapper">
-                        <img class="team-member-image" src="https://dpmptsp.konkepkab.go.id/public/assetsa/img/digital/c4.png">
+                        <img class="team-member-image" src="{{ asset('assets/website/images/client-logo/clients-4.png') }}">
                     </div>
                     <p class="text-blk name">
                     HAMIDA, SH.,MM

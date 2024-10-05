@@ -29,25 +29,35 @@ use Illuminate\Support\Facades\Route;
 //     // auth()->logout();
 //     // return 'home page';
 // });
+Route::controller(WebsiteController::class)->group(function(){
+    Route::get('/', 'home')->name('home');
+    Route::get('/contact', 'contact')->name('contact');
+});
 
-Route::get('/', [WebsiteController::class,'home'])->name('home');
-Route::get('/contact', [WebsiteController::class,'contact'])->name('contact');
-Route::get('/profile/sejarah', [profileController::class,'index'])->name('sejarah');
-Route::get('/profile/moto', [profileController::class,'moto'])->name('moto');
-Route::get('/profile/pejabat', [profileController::class,'pejabat'])->name('pejabat');
-Route::get('/profile/sambutan', [profileController::class,'sambutan'])->name('sambutan');
-Route::get('/profile/struktur', [profileController::class,'struktur'])->name('struktur');
-Route::get('/media/galeri', [mediaController::class,'galeri'])->name('galeri');
-Route::get('/media/berita', [mediaController::class,'berita'])->name('berita');
-Route::get('/media/berita/{post}', [mediaController::class,'show'])->name('posts.berita');
-Route::get('/media/petarencana', [mediaController::class,'peta'])->name('peta');
-Route::get('/pelayanan/perizinan', [perizinanController::class,'perizinan'])->name('perizinan');
-Route::get('/pelayanan/perizinan/download/{id}', [perizinanController::class, 'downloadFile'])->name('sp.download');
+Route::controller(controller: profileController::class)->group(function(){
+    Route::get('/profile/sejarah', 'index')->name('sejarah');
+    Route::get('/profile/moto', 'moto')->name('moto');
+    Route::get('/profile/pejabat', 'pejabat')->name('pejabat');
+    Route::get('/profile/sambutan', 'sambutan')->name('sambutan');
+    Route::get('/profile/struktur', 'struktur')->name('struktur');
+});
+
+Route::controller(controller: mediaController::class)->group(function(){
+    Route::get('/media/galeri', 'galeri')->name('galeri');
+    Route::get('/media/berita', 'berita')->name('berita');
+    Route::get('/media/berita/{post}', 'show')->name('posts.berita');
+    Route::get('/media/petarencana', 'peta')->name('peta');
+});
+
+Route::controller(perizinanController::class)->group(function(){
+    Route::get('/pelayanan/perizinan', 'perizinan')->name('perizinan');
+    Route::get('/pelayanan/perizinan/download/{id}',  'downloadFile')->name('sp.download');
+});
 
 Auth::routes();
 
 
-Route::get('/auth/dashboard', [DashboardController::class, 'dashboard'])->name('auth.dahsboard')->middleware('auth');
+Route::get('/auth/dashboard', [DashboardController::class, 'dashboard'])->name('auth.dashboard')->middleware('auth');
 Route::resource('auth/posts', PostController::class);
 Route::resource('auth/SP', SPController::class);
 Route::get('/auth/SP/download/{id}', [SPController::class, 'download'])->name('sp.download');
