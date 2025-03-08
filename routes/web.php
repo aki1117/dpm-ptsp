@@ -34,7 +34,7 @@ Route::controller(WebsiteController::class)->group(function(){
     Route::get('/contact', 'contact')->name('contact');
 });
 
-Route::controller(controller: profileController::class)->group(function(){
+Route::controller(profileController::class)->group(function(){
     Route::get('/profile/sejarah', 'index')->name('sejarah');
     Route::get('/profile/moto', 'moto')->name('moto');
     Route::get('/profile/pejabat', 'pejabat')->name('pejabat');
@@ -42,7 +42,7 @@ Route::controller(controller: profileController::class)->group(function(){
     Route::get('/profile/struktur', 'struktur')->name('struktur');
 });
 
-Route::controller(controller: mediaController::class)->group(function(){
+Route::controller(mediaController::class)->group(function(){
     Route::get('/media/galeri', 'galeri')->name('galeri');
     Route::get('/media/berita', 'berita')->name('berita');
     Route::get('/media/berita/{post}', 'show')->name('posts.berita');
