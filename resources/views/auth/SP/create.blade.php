@@ -37,41 +37,13 @@
                             </ul>
                         </div>
                     @endif
-                    <form method="post" action="{{ route('posts.store') }}" class="forms-sample" enctype="multipart/form-data">
-                      @csrf
-                      <div class="form-group">
-                        <label for="exampleInputName1">Title</label>
-                        <input type="text" name="title" class="form-control" id="exampleInputName1" placeholder="title" value=" {{ old('title') }} " required>
-                      </div>
-                      <div class="form-group">
-                        <label>category</label>
-                        <select name="category" class="form-control" required>
-                            <option disabled selected>choose option</option>
-                            @if (count($categories) > 0)
-                                @foreach ($categories as $category)
-                                  <option @selected( old('category') == $category->id ) value="{{ $category->id }}">{{ $category->name }}</option>
-                                @endforeach
-                            @endif
-                        </select>
-                      </div>
-                      <div class="form-group">
-                        <label>Published</label>
-                        <select name="is_publish" class="form-control" required>
-                            <option disabled selected>choose option</option>
-                            <option @selected( old('is_publish') == 1 ) value="1">publish</option>
-                            <option @selected( old('is_publish') == 0 ) value="0">draft</option>
-                        </select>
-                      </div>
-                      <div class="form-group">
-                        <label>Description</label>
-                        <textarea id="summernote" name="description" class="form-control" cols="30" rows="10" required>{{ old('description') }}</textarea>
-                      </div>
+                    <form method="post" action="{{ route('SP.store') }}" class="forms-sample" enctype="multipart/form-data">
+                      @csrf                              
                       <div class="form-group">
                         <label>File upload</label>
-                        <input type="file" name="file" class="form-control" required>
+                        <input type="file" name="path" class="form-control" required>
                         </div>
-                      </div>
-                      
+                      </div>            
                       
                       <button type="submit" class="btn btn-gradient-primary me-2">Submit</button>
                       <button class="btn btn-light">Cancel</button>

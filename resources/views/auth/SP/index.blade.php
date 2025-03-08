@@ -7,11 +7,11 @@
 <div class="main-panel">
     <div class="content-wrapper">
         <div class="page-header">
-            <h3 class="page-title"> Posts </h3>
+            <h3 class="page-title"> Standar Prosedur </h3>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Posts</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">All Posts</li>
+                    <li class="breadcrumb-item"><a href="{{route('SP.create')}}">Buat</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Standar Prosedur</li>
                 </ol>
             </nav>
         </div>
@@ -22,18 +22,16 @@
                 <div class="card">
                     <div class="card-body">
                         @if(count($posts)>0 )
-                        <h4 class="card-title">Posts</h4>
+                        <h4 class="card-title">Standar Prosedur</h4>
                         <p class="card-description"> Add class <code>.table-striped</code>
                         </p>
 
                         <table id="posts-table" class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th> Image </th>
-                                    <th> Title </th>
-                                    <th> Description </th>
-                                    <th> Category </th>
-                                    <th> Status </th>
+                                    <th> No. </th>
+                                    <th> File </th>
+                                    <th> date </th>
                                     <th> Action </th>
                                 </tr>
                             </thead>
@@ -41,18 +39,11 @@
                             <tbody>
                             @foreach($posts as $post)
                                 <tr>
-                                    <td class="py-1">
-                                        <img src=" {{ $post->gallery->image }}" style="width: 90px; height: 70px;" alt="image" />
-                                    </td>
-                                    <td> {{ $post->title }} </td>
+                                    <td> {{ $post->id }} </td>
+                                    <td> {{ $post->path }} </td>
+                                    <td> {{ $post->created_at }} </td>
                                     <td>
-                                        {{ Str::limit($post->description, 15, '...') }}
-                                    </td>
-                                    <td> {{ $post->category->name }} </td>
-                                    <td> {{ $post->is_publish == 1 ? 'Published' : 'Draft' }} </td>
-                                    <td>
-                                        <a href="" class="btn btn-sm btn-success"><i class="fas fa-eye"></i></a>
-                                        <a href="" class="btn btn-sm btn-info"><i class="fa fa-edit"></i></a>
+                                        <a href="{{route('sp.download', $post->id)}}" class="btn btn-sm btn-success">Download</a>
                                         <a href="" class="btn btn-sm btn-danger"><i class ="fa fa-trash"></i></a>
                                     </td>
                                 </tr>

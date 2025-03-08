@@ -4,9 +4,13 @@ use App\Http\Controllers\aduanController;
 use App\Http\Controllers\Auth\DashboardController;
 use App\Http\Controllers\Auth\PostController;
 use App\Http\Controllers\laporanController;
+use App\Http\Controllers\mediaController;
+use App\Http\Controllers\perizinanController;
+use App\Http\Controllers\profileController;
+use App\Http\Controllers\SPController;
 use App\Http\Controllers\WebsiteController;
 use Illuminate\Support\Facades\Route;
-use Auth;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -25,15 +29,38 @@ use Auth;
 //     // auth()->logout();
 //     // return 'home page';
 // });
+Route::controller(WebsiteController::class)->group(function(){
+    Route::get('/', 'home')->name('home');
+    Route::get('/contact', 'contact')->name('contact');
+});
 
-Route::get('/', [WebsiteController::class,'home'])->name('home');
+Route::controller(profileController::class)->group(function(){
+    Route::get('/profile/sejarah', 'index')->name('sejarah');
+    Route::get('/profile/moto', 'moto')->name('moto');
+    Route::get('/profile/pejabat', 'pejabat')->name('pejabat');
+    Route::get('/profile/sambutan', 'sambutan')->name('sambutan');
+    Route::get('/profile/struktur', 'struktur')->name('struktur');
+});
 
+Route::controller(mediaController::class)->group(function(){
+    Route::get('/media/galeri', 'galeri')->name('galeri');
+    Route::get('/media/berita', 'berita')->name('berita');
+    Route::get('/media/berita/{post}', 'show')->name('posts.berita');
+    Route::get('/media/petarencana', 'peta')->name('peta');
+});
+
+Route::controller(perizinanController::class)->group(function(){
+    Route::get('/pelayanan/perizinan', 'perizinan')->name('perizinan');
+    Route::get('/pelayanan/perizinan/download/{id}',  'downloadFile')->name('sp.download');
+});
 
 Auth::routes();
 
 
-Route::get('/auth/dashboard', [DashboardController::class, 'dashboard'])->name('auth.dahsboard')->middleware('auth');
+Route::get('/auth/dashboard', [DashboardController::class, 'dashboard'])->name('auth.dashboard')->middleware('auth');
 Route::resource('auth/posts', PostController::class);
-Route::resource('/laporan', laporanController::class);
+Route::resource('auth/SP', SPController::class);
+Route::get('/auth/SP/download/{id}', [SPController::class, 'download'])->name('sp.download');
+Route::resource('/pelayanan/laporan', laporanController::class);
 Route::resource('/auth/aduan', aduanController::class);
 

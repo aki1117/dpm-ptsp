@@ -5,10 +5,10 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h2>Contact Us</h2>
+                <h2>Laporan</h2>
                 <ol class="breadcrumb header-bradcrumb justify-content-center">
                     <li class="breadcrumb-item"><a href="index.html" class="text-white">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Contact Us</li>
+                    <li class="breadcrumb-item active" aria-current="page">Laporan</li>
                 </ol>
             </div>
         </div>
@@ -157,7 +157,7 @@
                                 <i class='bx bxs-edit'></i>
                             </label>
                             <input type="text" value="" name="subjek" id="subjek" class="form-control "
-                                placeholder="Ketik Judul Laporan Anda *">
+                                placeholder="Ketik Judul Laporan Anda *" required>
                         </div>
                     </div>
                     <!-- end subjek -->
@@ -169,7 +169,7 @@
                                 <i class='bx bx-comment-detail'></i>
                             </label>
                             <textarea name="isian" class="form-control" id="isian" cols="30" rows="9"
-                                placeholder="Ketik Isi Laporan Anda *"></textarea>
+                                placeholder="Ketik Isi Laporan Anda *" required></textarea>
                         </div>
                     </div>
                     <!-- end isi aduan -->
@@ -181,7 +181,7 @@
                                 <i class='bx bxs-calendar'></i>
                             </label>
                             <input type="date" name="tanggal_kejadian" value="" id="tanggal_kejadian"
-                                class="form-control" placeholder="000-00-00" id="mdate">
+                                class="form-control" placeholder="000-00-00" id="mdate" required>
                         </div>
                     </div>
                     <!-- end tanggal -->
@@ -193,7 +193,7 @@
                                 <i class='bx bxs-map'></i>
                             </label>
                             <input type="text" value="" name="lokasi" id="lokasi" class="form-control "
-                                placeholder="Ketik Lokasi Kejadian *">
+                                placeholder="Ketik Lokasi Kejadian *" required>
                         </div>
                     </div>
                     <!-- end lokasi -->
@@ -205,14 +205,14 @@
                                 <i class='bx bx-comment-detail'></i>
                             </label>
                             <input type="text" value="" name="tujuan_pengaduan" id="tujuan_pengaduan"
-                                class="form-control " placeholder="Ketik Tujuan Pengaduan *">
+                                class="form-control " placeholder="Ketik Tujuan Pengaduan *" required>
                         </div>
                     </div>
                     <!-- end tujuan pengaduan -->
 
                 </div>
                 <div id="cf-submit">
-                    <input type="submit" id="contact-submit" class="btn btn-transparent" value="Submit">
+                    <input type="submit" id="contact-submit" class="btn btn-transparent" value="Submit" required>
                 </div>
 
             </form>
@@ -226,10 +226,10 @@
 <!--================================
 =            Google Map            =
 =================================-->
-<div class="google-map">
+<!-- <div class="google-map">
     <div id="map_canvas" class="map_canvas" data-latitude="40.712776" data-longitude="-74.005974"
         data-marker="images/marker.png" data-marker-name="Bingo"></div>
-</div>
+</div> -->
 <!--====  End of Google Map  ====-->
 
 @endsection

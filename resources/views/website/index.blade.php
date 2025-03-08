@@ -53,7 +53,7 @@ Start About Section
             <div class="col-lg-6">
                 <!-- section title -->
                 <div class="title text-center">
-                    <h2>What Do We Offer</h2>
+                    <h2>Pelayanan Kami</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur
                         adipisicing elit. Voluptates, earum. </p>
                     <div class="border"></div>
@@ -128,11 +128,11 @@ Start About Section
 
         <div class="row">
 
-            <div class="col-md-6 mb-4 mb-md-0">
-                <img loading="lazy" src="{{ asset('assets/website/images/about/about-2.png') }}" class="img-fluid"
+            <div class="col-md-8 mb-4 mb-md-0">
+                <img loading="lazy" src="{{ asset('assets/website/images/about/about-2.jpg') }}" class="img-fluid"
                     alt="">
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4 row align-items-center" >
                 <ul class="checklist">
                     <li>Pelayanan Informasi</li>
                     <li>Validasi</li>
@@ -140,7 +140,7 @@ Start About Section
                     <li>Output</li>
                     <li> Subsistem Pengawasan</li>
                 </ul>
-                <a href="about.html" class="btn btn-main mt-20">Learn More</a>
+                
             </div>
         </div> <!-- End row -->
     </div> <!-- End container -->
@@ -155,7 +155,7 @@ Start Call To Action
             <div class="col-xl-6 col-lg-8 text-center">
                 <h2>Sistem Lapor</h2>
                 <p>Layanan Aspirasi dan Pengaduan Masyarakat secara Online</p>
-                <a href="contact.html" class="btn btn-main">Kirim Aduan</a>
+                <a href="{{ route('laporan.index') }}" class="btn btn-main">Kirim Aduan</a>
             </div>
         </div> <!-- End row -->
     </div> <!-- End container -->
@@ -251,11 +251,11 @@ Start Counter Section
 							<!-- /client info -->
 							<!-- client photo -->
 							<div class="client-thumb">
-								<img loading="lazy" src="{{ asset('assets/website/images/client-logo/clients-1.jpg') }}" class="img-fluid" alt="">
+								<img loading="lazy" src="{{ asset('assets/website/images/client-logo/clients-1.png') }}" class="img-fluid" alt="">
 							</div>
 							<div class="client-meta">
-								<h3>William Martin</h3>
-								<span>CEO , Company Name</span>
+								<h3>H. ASGAR, SE</h3>
+								<span>Sekretaris Dinas</span>
 							</div>
 							<!-- /client photo -->
 						</div>
@@ -271,11 +271,11 @@ Start Counter Section
 							<!-- /client info -->
 							<!-- client photo -->
 							<div class="client-thumb">
-								<img loading="lazy" src="{{ asset('assets/website/images/client-logo/clients-2.jpg') }}" class="img-fluid" alt="">
+								<img loading="lazy" src="{{ asset('assets/website/images/client-logo/clients-2.png') }}" class="img-fluid" alt="">
 							</div>
 							<div class="client-meta">
-								<h3>Emma Harrison</h3>
-								<span>CEO , Company Name</span>
+								<h3>Nusrin, S.Sos., MM</h3>
+								<span>Kepala Bidang Tenaga Kerja</span>
 							</div>
 							<!-- /client photo -->
 						</div>
@@ -291,11 +291,31 @@ Start Counter Section
 							<!-- /client info -->
 							<!-- client photo -->
 							<div class="client-thumb">
-								<img loading="lazy" src="{{ asset('assets/website/images/client-logo/clients-3.jpg') }}" class="img-fluid" alt="">
+								<img loading="lazy" src="{{ asset('assets/website/images/client-logo/clients-3.png') }}" class="img-fluid" alt="">
 							</div>
 							<div class="client-meta">
-								<h3>Alexander Lucas</h3>
-								<span>CEO , Company Name</span>
+								<h3>ASRUL SANI KADIR, S.Pd, M.Si</h3>
+								<span>Kabid. Perizinan</span>
+							</div>
+							<!-- /client photo -->
+						</div>
+						<!-- /testimonial single -->
+
+                        <!-- testimonial single -->
+						<div class="item text-center">
+							<i class="tf-ion-chatbubbles"></i>
+							<!-- client info -->
+							<div class="client-details">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum nulla, soluta dolorum. Eos earum, magni asperiores, unde corporis labore, enim, voluptatum officiis voluptates alias natus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, officia. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, quia?</p>
+							</div>
+							<!-- /client info -->
+							<!-- client photo -->
+							<div class="client-thumb">
+								<img loading="lazy" src="{{ asset('assets/website/images/client-logo/clients-4.png') }}" class="img-fluid" alt="">
+							</div>
+							<div class="client-meta">
+								<h3>HAMIDA, SH.,MM</h3>
+								<span>Kepala Bidang Transimigrasi</span>
 							</div>
 							<!-- /client photo -->
 						</div>
@@ -327,60 +347,24 @@ Start Blog Section
 
         <div class="row">
             <!-- single blog post -->
+            @foreach ($posts as $post)
             <article class="col-lg-4 col-md-6">
+            
                 <div class="post-item">
                     <div class="media-wrapper">
-                        <img loading="lazy" src="{{ asset('assets/website/images/blog/post-1.jpg') }}"
-                            alt="amazing caves coverimage" class="img-fluid">
+                        <img loading="lazy" src="{{ $post->gallery->image }}" alt="amazing caves coverimage"   width="420" height="300">
                     </div>
 
                     <div class="content">
-                        <h3><a href="single-post.html">Reasons to Smile</a></h3>
-                        <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad
-                            squid. 3 wolf
-                            moon officia aute, non skateboard dolor brunch.</p>
-                        <a class="btn btn-main" href="single-post.html">Read more</a>
+                        <h3><a href="{{ route('posts.berita', $post->id)}}">{{ $post->title }}</a></h3>
+                        <i class="calendar"> {{ date('d-M-Y', strtotime($post->created_at)) }}</i>
+                        <p> {{!! Str::limit($post->description, 100, '...') !!}}</p>
+                        <a class="btn btn-main" href="{{ route('posts.berita', $post->id)}}">Read more</a>
                     </div>
                 </div>
             </article>
             <!-- /single blog post -->
-
-            <!-- single blog post -->
-            <article class="col-lg-4 col-md-6">
-                <div class="post-item">
-                    <div class="media-wrapper">
-                        <img loading="lazy" src="{{ asset('assets/website/images/blog/post-2.jpg') }}"
-                            alt="amazing caves coverimage" class="img-fluid">
-                    </div>
-
-                    <div class="content">
-                        <h3><a href="single-post.html">A Few Moments</a></h3>
-                        <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad
-                            squid. 3 wolf
-                            moon officia aute, non skateboard dolor brunch.</p>
-                        <a class="btn btn-main" href="single-post.html">Read more</a>
-                    </div>
-                </div>
-            </article>
-            <!-- end single blog post -->
-
-            <!-- single blog post -->
-            <article class="col-lg-4 col-md-6">
-                <div class="post-item">
-                    <div class="media-wrapper">
-                        <img loading="lazy" src="{{ asset('assets/website/images/blog/post-3.jpg') }}"
-                            alt="amazing caves coverimage3" class="img-fluid">
-                    </div>
-
-                    <div class="content">
-                        <h3><a href="single-post.html">Hints for Life</a></h3>
-                        <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad
-                            squid. 3 wolf
-                            moon officia aute, non skateboard dolor brunch.</p>
-                        <a class="btn btn-main" href="single-post.html">Read more</a>
-                    </div>
-                </div>
-            </article>
+            @endforeach
             <!-- end single blog post -->
         </div> <!-- end row -->
     </div> <!-- end container -->
