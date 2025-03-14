@@ -25,7 +25,7 @@
             <div class="title text-center">
                 <div class="design-content">
                     <div class="section-title two">
-                        <img src="https://dpmptsp.konkepkab.go.id/public/assetsa/img/it-startup/baner.jpg" alt="Design">
+                        <!-- <img src="https://dpmptsp.konkepkab.go.id/public/assetsa/img/it-startup/baner.jpg" alt="Design"> -->
                         <br><br>
                         <h2>Alamat</h2>
                         <span class="sub-title">Jl. Poros Langara-Lampeapi Km.3</span><br>

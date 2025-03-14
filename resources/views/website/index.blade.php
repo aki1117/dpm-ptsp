@@ -10,13 +10,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">Crafting Digital <br>
-                        Experience</h1>
-                    <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">Lorem ipsum dolor sit amet,
-                        consectetur adipisicing elit. Quod, <br> veritatis tempore nostrum id
-                        officia quaerat eum corrupti, <br> ipsa aliquam velit.</p>
-                    <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn btn-main"
-                        href="service.html">Explore Us</a>
+                    <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">Dinas Penanaman Modal dan Pelayanan Terpadu Satu Pintu (DPMPTSP)
+                     <br>
+                     Kabupaten Konawe Kepulauan</h1>
+                    <!-- <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5"> <br>  <br> ipsa aliquam velit.</p> -->
+                    <!-- <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn btn-main"
+                        href="service.html">Explore Us</a> -->
                 </div>
             </div>
         </div>
@@ -26,15 +25,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <h1 data-duration-in=".3" data-animation-in="fadeInDown" data-delay-in=".1">We Combine Design <br>
-                        and
-                        Creativity</h1>
-                    <p data-duration-in=".3" data-animation-in="fadeInDown" data-delay-in=".5">Create just what you need
+                    <h1 data-duration-in=".3" data-animation-in="fadeInDown" data-delay-in=".1">Sampaikan Pertanyaan, Keluhan atau Saran Anda di Sini <br>
+                    </h1>
+                    <!-- <p data-duration-in=".3" data-animation-in="fadeInDown" data-delay-in=".5">Create just what you need
                         for your Perfect Website. Choose from a wide range
                         <br> of Elements & simply put them on our Canvas.
-                    </p>
+                    </p> -->
                     <a data-duration-in=".3" data-animation-in="fadeInDown" data-delay-in=".8" class="btn btn-main"
-                        href="service.html">Explore Us</a>
+                        href="{{ route('laporan.index') }}">Lapor</a>
                 </div>
             </div>
         </div>
@@ -73,32 +71,28 @@ Start About Section
                         <div class="service-item">
                             <i class="tf-ion-ios-alarm-outline"></i>
                             <h4>Perizinan</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vitae risus nec dui
-                                venenatis.</p>
+                            <p>Formulir Informasi Publik dan Formulir Layanan Perizinan</p>
                         </div>
                     </div><!-- END COL -->
                     <div class="col-md-6 col-sm-6">
                         <div class="service-item">
                             <i class="tf-ion-ios-briefcase-outline"></i>
                             <h4>Pengaduan</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vitae risus nec dui
-                                venenatis.</p>
+                            <p>Sampaikan Pertanyaan, Keluhan atau Saran Anda di Sini .</p>
                         </div>
                     </div><!-- END COL -->
                     <div class="col-md-6 col-sm-6">
                         <div class="service-item">
                             <i class="tf-ion-ios-email-outline"></i>
                             <h4>Mail Support</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vitae risus nec dui
-                                venenatis.</p>
+                            <p>Jika Anda memiliki pertanyaan, kritik dan saran terhadap kami, silakan hubungi kami, kami akan senang mendengar dari Anda.</p>
                         </div>
                     </div><!-- END COL -->
                     <div class="col-md-6 col-sm-6">
                         <div class="service-item">
                             <i class="tf-ion-ios-locked-outline"></i>
                             <h4>Berita</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vitae risus nec dui
-                                venenatis.</p>
+                            <p>Cek berita terbaru DPMPTSP Konkep</p>
                         </div>
                     </div><!-- END COL -->
                 </div>
@@ -169,7 +163,7 @@ Start Counter Section
         <div class="row justify-content-center">
             <div class="col-xl-6 col-lg-8 text-center">
                 <div class="title">
-                    <h2>Survei Kepuasan Masyarakat</h2>
+                    <h2>Layanan Informasi Publik</h2>
                     <p>Vestibulum nisl tortor, consectetur quis imperdiet bibendum, laoreet sed arcu. Sed condimentum
                         iaculis ex, in faucibus lorem accumsan non. Donec mattis tincidunt metus. Morbi sed tortor a
                         risus luctus dignissim.</p>

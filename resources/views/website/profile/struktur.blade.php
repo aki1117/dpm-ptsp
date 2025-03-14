@@ -28,7 +28,7 @@
                         <div class="col-lg-11">
                             <div class="design-content">
                                 <div class="section-title two">
-                                    <img src="https://dpmptsp.konkepkab.go.id/public/assetsa/img/it-startup/baner.jpg" alt="Design">
+                                    <!-- <img src="https://dpmptsp.konkepkab.go.id/public/assetsa/img/it-startup/baner.jpg" alt="Design"> -->
                                     <br><br>
                                     <span class="sub-title">Struktur Organisasi</span>
                                     <h2>DPMPTSP</h2>
