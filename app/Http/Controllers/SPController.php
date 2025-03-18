@@ -54,7 +54,7 @@ class SPController extends Controller
 
         DB::commit();
         $request->session()->flash('success','Post Created Successfully');
-        return view('auth.SP.index');
+        return to_route('SP.index');
     }
 
     /**
@@ -89,6 +89,9 @@ class SPController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $user = SP::findOrFail($id);
+        $user->delete();
+
+        return redirect('auth/SP')->with('Success', 'Data berhasil dihapus');
     }
 }

@@ -51,7 +51,7 @@ Route::controller(mediaController::class)->group(function(){
 
 Route::controller(perizinanController::class)->group(function(){
     Route::get('/pelayanan/perizinan', 'perizinan')->name('perizinan');
-    Route::get('/pelayanan/perizinan/download/{id}',  'downloadFile')->name('sp.download');
+    Route::get('/pelayanan/perizinan/download/{id}',  'downloadFile')->name('perizinan.downloadFile');
 });
 
 Auth::routes();
@@ -59,8 +59,10 @@ Auth::routes();
 
 Route::get('/auth/dashboard', [DashboardController::class, 'dashboard'])->name('auth.dashboard')->middleware('auth');
 Route::resource('auth/posts', PostController::class);
+Route::delete('/auth/posts/delete/{id}', [PostController::class, 'destroy'])->name('posts.destroy');
 Route::resource('auth/SP', SPController::class);
 Route::get('/auth/SP/download/{id}', [SPController::class, 'download'])->name('sp.download');
+Route::delete('/auth/SP/delete/{id}', [SPController::class, 'destroy'])->name('sp.destroy');
 Route::resource('/pelayanan/laporan', laporanController::class);
 Route::resource('/auth/aduan', aduanController::class);
 

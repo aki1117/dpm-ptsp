@@ -105,6 +105,9 @@ class PostController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $user = Post::findOrFail($id);
+        $user->delete();
+
+        return redirect('auth/posts')->with('Success', 'Data berhasil dihapus');
     }
 }

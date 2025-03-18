@@ -51,9 +51,13 @@
                                     <td> {{ $post->category->name }} </td>
                                     <td> {{ $post->is_publish == 1 ? 'Published' : 'Draft' }} </td>
                                     <td>
-                                        <a href="" class="btn btn-sm btn-success"><i class="fas fa-eye"></i></a>
+                                        <!-- <a href="" class="btn btn-sm btn-success"><i class="fas fa-eye"></i></a> -->
                                         <a href="" class="btn btn-sm btn-info"><i class="fa fa-edit"></i></a>
-                                        <a href="" class="btn btn-sm btn-danger"><i class ="fa fa-trash"></i></a>
+                                        <form action="{{ route('posts.destroy', $post->id) }}" method="POST" class="btn btn-sm btn-danger">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="fa fa-trash" onclick=""></button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach

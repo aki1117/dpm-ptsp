@@ -20,8 +20,9 @@
 
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
+                    @csrf
                     <div class="card-body">
-                        @if(count($posts)>0 )
+                        @if(is_countable($posts) )
                         <h4 class="card-title">Standar Prosedur</h4>
                         <p class="card-description"> Add class <code>.table-striped</code>
                         </p>
@@ -37,17 +38,23 @@
                             </thead>
 
                             <tbody>
-                            @foreach($posts as $post)
+                                @foreach($posts as $post)
                                 <tr>
                                     <td> {{ $post->id }} </td>
                                     <td> {{ $post->path }} </td>
                                     <td> {{ $post->created_at }} </td>
                                     <td>
                                         <a href="{{route('sp.download', $post->id)}}" class="btn btn-sm btn-success">Download</a>
-                                        <a href="" class="btn btn-sm btn-danger"><i class ="fa fa-trash"></i></a>
+                                        
+                                        <form action="{{ route('sp.destroy', $post->id) }}" method="POST" class="btn btn-sm btn-danger">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="fa fa-trash" onclick=""></button>
+                                        </form>
+
                                     </td>
                                 </tr>
-                            @endforeach
+                                @endforeach
                             </tbody>
 
                         </table>
@@ -65,7 +72,7 @@
     @section('scripts')
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
     <script>
-        $(document).ready(function(){
+        $(document).ready(function() {
             $('#posts-table').DataTable();
         });
     </script>
