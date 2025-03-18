@@ -1,6 +1,6 @@
 @extends('layouts.auth')
 
-@section('title', 'Create Post')
+@section('title', 'Edit Post')
 
 @section('styles')
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
@@ -17,7 +17,7 @@
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item"><a href="{{ route('posts.index')}}">Berita</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Buat berita</li>
+                  <li class="breadcrumb-item active" aria-current="page">Edit berita</li>
                 </ol>
               </nav>
             </div>
@@ -27,7 +27,7 @@
               <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Buat berita</h4>
+                    <h4 class="card-title">Update berita</h4>
                     @if ($errors->any())
                         <div class="alert alert-danger">
                             <ul>
@@ -37,11 +37,12 @@
                             </ul>
                         </div>
                     @endif
-                    <form method="post" action="{{ route('posts.store') }}" class="forms-sample" enctype="multipart/form-data">
+                    <form method="post" action="{{ route('posts.update', $posts->id) }}" class="forms-sample" enctype="multipart/form-data">
                       @csrf
+                      @method('PUT')
                       <div class="form-group">
                         <label for="exampleInputName1">Title</label>
-                        <input type="text" name="title" class="form-control" id="exampleInputName1" placeholder="title" value=" {{ old('title') }} " required>
+                        <input type="text" name="title" class="form-control" id="exampleInputName1" placeholder="title" value="{{ $posts->title}} " required>
                       </div>
                       <div class="form-group">
                         <label>category</label>
@@ -64,14 +65,13 @@
                       </div>
                       <div class="form-group">
                         <label>Description</label>
-                        <textarea id="summernote" name="description" class="form-control" cols="30" rows="10" required>{{ old('description') }}</textarea>
+                        <textarea id="summernote" name="description" class="form-control" cols="30" rows="10" required>{{ $posts->description }}</textarea>
                       </div>
                       <div class="form-group">
                         <label>File upload</label>
-                        <input type="file" name="file" class="form-control" required>
+                        <input type="file" name="file" class="form-control" src=" {{ $posts->gallery_id}} "  required>
                         </div>
                       </div>
-                      
                       
                       <button type="submit" class="btn btn-gradient-primary me-2">Submit</button>
                       <button class="btn btn-light">Cancel</button>

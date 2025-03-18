@@ -87,17 +87,26 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        $posts = Post::find($id);
+        $categories = Category::all();
+        return view('auth.posts.edit', compact('posts', 'categories'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+        $posts = Post::find($id);
+        $posts->title = $request->input('title');
+        
+        
+        $posts->save();
+    
+
+        return redirect('auth/posts');
     }
 
     /**

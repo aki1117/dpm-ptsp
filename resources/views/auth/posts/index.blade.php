@@ -7,11 +7,11 @@
 <div class="main-panel">
     <div class="content-wrapper">
         <div class="page-header">
-            <h3 class="page-title"> Posts </h3>
+            <h3 class="page-title"> Berita </h3>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Posts</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">All Posts</li>
+                    <li class="breadcrumb-item"><a href="#">Berita</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Semua Berita</li>
                 </ol>
             </nav>
         </div>
@@ -22,7 +22,7 @@
                 <div class="card">
                     <div class="card-body">
                         @if(count($posts)>0 )
-                        <h4 class="card-title">Posts</h4>
+                        <h4 class="card-title">Berita</h4>
                         <p class="card-description"> Add class <code>.table-striped</code>
                         </p>
 
@@ -52,7 +52,7 @@
                                     <td> {{ $post->is_publish == 1 ? 'Published' : 'Draft' }} </td>
                                     <td>
                                         <!-- <a href="" class="btn btn-sm btn-success"><i class="fas fa-eye"></i></a> -->
-                                        <a href="" class="btn btn-sm btn-info"><i class="fa fa-edit"></i></a>
+                                        <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-sm btn-info"><i class="fa fa-edit"></i></a>
                                         <form action="{{ route('posts.destroy', $post->id) }}" method="POST" class="btn btn-sm btn-danger">
                                             @csrf
                                             @method('delete')
