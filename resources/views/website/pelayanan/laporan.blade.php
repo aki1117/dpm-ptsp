@@ -46,11 +46,12 @@
                     <!-- jenis kelamin -->
                     <div class="col-sm-6 col-lg-6">
                         <div class="form-group">
-                            <select name="jk" class="form-control form-control-lg mb-6"
+                            <select name="jenisKelamin" id="jenisKelamin" class="form-control form-control-lg mb-6"
                                 aria-label=".form-control-lg example">
-                                <option value="" disabled selected>Jenis Kelamin</option>
-                                <option @selected( old('jenisKelamin')==1 ) value="1">Laki Laki</option>
-                                <option @selected( old('jenisKelamin')==0 ) value="0">Perempuan</option>
+                                
+                                <option disabled selected>Jenis Kelamin</option>
+                                <option @selected( old('jenisKelamin')==1 ) value="1">Perempuan</option>
+                                <option @selected( old('jenisKelamin')==0 ) value="0">Laki-laki</option>
                             </select>
                             <div class="invalid-feedback">
                                 Jenis kelamin harus diIsi.
@@ -144,7 +145,7 @@
                                 @endif
                             </select>
                             <div class="invalid-feedback">
-                                Jenis kelamin harus diIsi.
+                                Jenis Aduan harus diIsi.
                             </div>
                         </div>
                     </div>

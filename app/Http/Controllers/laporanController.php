@@ -38,14 +38,14 @@ class laporanController extends Controller
         $request->validate([
             'email' => ['required','email'],
             'ktp' => ['required', 'max:17'],
-            'phone_number'=> ['max:12'],
+            'phone_number'=> ['max:16'],
             'jenis_Lapor_id'=> ['required'],
         ]);
 
         lapor::create([
             'jenis_Lapor_id'=>$request->jenis_Lapor_id,
             'name'=> $request->nama, 
-            'jk '=> $request->jenisKelamin,
+            'jenisKelamin'=> $request->jenisKelamin,
             'rumah'=> $request->alamat_rumah,
             'pekerjaan'=> $request->pekerjaan,
             'kantor'=> $request->alamat_kantor,
@@ -62,6 +62,8 @@ class laporanController extends Controller
             DB::rollBack();
             dd($th->getMessage());
         }
+        
+        // dd($request->all());
 
         DB::commit();
         $request->session()->flash('success','Post Created Successfully');
