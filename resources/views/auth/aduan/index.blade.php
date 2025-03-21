@@ -22,6 +22,7 @@
                 <table id="modaldata" class="table table-striped table-hover table-bordered">
                     <thead>
                         <tr>
+                            <th>  </th>
                             <th> Nama </th>
                             <th> Jenis Kelamin </th>
                             <th> Alamat rumah </th>
@@ -74,6 +75,7 @@
                         <table id="posts-table" class="display nowrap" style="width:50%">
                             <thead>
                                 <tr>
+                                <th> Action </th>
                                     <th> Nama </th>
                                     <th> Jenis Kelamin </th>
                                     <th> Alamat rumah </th>
@@ -88,13 +90,14 @@
                                     <th> Tanggal </th>
                                     <th> Lokasi </th>
                                     <th> Tujuan pengaduan </th>
-                                    <th> Action </th>
+                                    
                                 </tr>
                             </thead>
 
                             <tbody>
                                 @foreach($laporans as $laporan)
                                 <tr>
+                                <td><button class="btn btn-info">View</button></td>
                                     <td> {{ $laporan->name }} </td>
                                     <td> {{ $laporan->jenisKelamin == 1 ? 'Perempuan' : 'Laki-laki' }} </td>
                                     <td>
@@ -115,7 +118,7 @@
                                     <td>
                                         {{ $laporan->tujuan_pengaduan }}
                                     </td>
-                                    <td><button class="btn btn-info">View</button></td>
+                                    
                                 </tr>
 
                                 @endforeach

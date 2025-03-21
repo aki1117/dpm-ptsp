@@ -411,7 +411,7 @@
             </li>
             <li class="nav-item dropdown active">
               <a class="nav-link dropdown-toggle" href="#!" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Profile <i class="tf-ion-chevron-down"></i>
+                Profil <i class="tf-ion-chevron-down"></i>
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li><a class="dropdown-item" href="{{ route('sejarah') }}">Sejarah singkat</a></li>
@@ -447,10 +447,10 @@
               <a class="nav-link" href="team.html">SKM</a>
             </li> -->
             <li class="nav-item ">
-              <a class="nav-link" href="{{ route('contact') }}">Contact</a>
+              <a class="nav-link" href="{{ route('contact') }}">Kontak</a>
             </li>
             <li class="nav-item ">
-              <a class="nav-link" href="{{ route('login') }}">Login</a>
+              <a class="nav-link" href="{{ route('login') }}">Masuk</a>
             </li>
             <!-- <li class="nav-item dropdown active">
               <a class="nav-link dropdown-toggle" href="#!" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

@@ -34,8 +34,8 @@
                                         <tr>
                                             <th> No. </th>
                                             <th> File </th>
-                                            <th> date </th>
-                                            <th> Action </th>
+                                            <!-- <th> date </th> -->
+                                            <th> Unduh </th>
                                         </tr>
                                     </thead>
 
@@ -44,8 +44,8 @@
                                         <tr>
                                             <td> {{ $post->id }} </td>
                                             <td> {{ $post->path }} </td>
-                                            <td> {{ $post->created_at }} </td>
-                                            <td><a href="{{ route('sp.download', $post->id) }}">download</a></td>
+                                            <!-- <td> {{ $post->created_at }} </td> -->
+                                            <td><a href="{{ route('sp.download', $post->id) }}" class="btn btn-sm btn-success">download</a></td>
                                         </tr>
                                         @endforeach
                                     </tbody>
