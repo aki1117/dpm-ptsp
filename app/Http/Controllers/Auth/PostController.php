@@ -93,7 +93,7 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id)
+    public function update(CreateRequest $request, $id)
     {
         $posts = Post::find($id);
         $posts->title = $request->input('title');
@@ -110,39 +110,6 @@ class PostController extends Controller
                 'image' => $filename,
             ]);
         }
-        // if($request->has('file')){
-        //     $file = $request->file;
-        //     $extension = $file->getClientOriginalExtension();
-        //     $filename = time(). '.' . $extension;
-        //     $path = 'image/posts';
-        //     $file->move('image/posts', $filename);
-        // }
-
-        // if($request->hasFile('file'))
-        // {
-        //     $destination = 'image/posts' . $gallery->image;
-        //     if(gallery::exists($destination))
-        //     {
-        //         gallery::destroy($destination);
-        //     }
-        //     $file = $request->file('file');
-        //     $extension = $file->getClientOriginalExtension();
-        //     $filename = time(). '.' . $extension;
-        //     $file->move('image/posts', $filename);
-        //     $gallery->image = $filename;
-        // }
-
-        // if ($request->hasFile('file')) {
-        //     $image_pathi = public_path('image/posts'.$posts->gallery_id);
-        //     if (gallery::exists($image_pathi)) {
-        //         gallery::delete($image_pathi);
-        //     }
-        //     $file = $request->file;
-        //     $filename = time() . $file->getClientOriginalName();
-        //     $imagepath = public_path('image/posts');
-        //     $file->move($imagepath, $filename);
-        //     $posts->file = $filename;
-        // } 
 
         $posts->update();
 
