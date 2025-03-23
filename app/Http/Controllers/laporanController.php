@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\lapor;
 use Illuminate\Http\Request;
 use App\Models\jenisLapor;
+use App\Http\Requests\Auth\Post\LaporRequest;
 use DB;
 
 class laporanController extends Controller
@@ -30,17 +31,17 @@ class laporanController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(LaporRequest $request)
     {
         try {
             DB::beginTransaction();
 
-        $request->validate([
-            'email' => ['required','email'],
-            'ktp' => ['required', 'max:17'],
-            'phone_number'=> ['max:16'],
-            'jenis_Lapor_id'=> ['required'],
-        ]);
+        // $request->validate([
+        //     'email' => ['required','email'],
+        //     'ktp' => ['required', 'max:17'],
+        //     'phone_number'=> ['max:12'],
+        //     'jenis_Lapor_id'=> ['required'],
+        // ]);
 
         lapor::create([
             'jenis_Lapor_id'=>$request->jenis_Lapor_id,
@@ -51,7 +52,7 @@ class laporanController extends Controller
             'kantor'=> $request->alamat_kantor,
             'email'=> $request->email,
             'ktp'=> $request->ktp,
-            'phone_number'=> $request->tlp,
+            'phone_number'=> $request->phone_number,
             'subjek'=> $request->subjek,
             'isian'=> $request->isian,
             'tanggal_kejadian'=> $request->tanggal_kejadian,

@@ -20,7 +20,7 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::with(['gallery', 'category'])->get();
-        return view('auth.posts.index',['posts' => $posts]);
+        return view('auth.posts.index', ['posts' => $posts]);
         // $laporans = lapor::with('jenis')->get();
         // return view('auth.aduan.index',['laporans' => $laporans]);
     }
@@ -32,7 +32,7 @@ class PostController extends Controller
     {
         $categories = Category::all();
         // return view('auth/posts/create')->with('categories', $categories);
-        return view('auth.posts.create',['categories'=>$categories]);
+        return view('auth.posts.create', ['categories' => $categories]);
     }
 
     /**
@@ -43,37 +43,33 @@ class PostController extends Controller
         try {
             DB::beginTransaction();
 
-            if($file = $request->has('file')){
+            if ($file = $request->has('file')) {
                 $file = $request->file;
-                $filename = time().$file->getClientOriginalName();
-                $imagepath = public_path('image/posts');  
+                $filename = time() . $file->getClientOriginalName();
+                $imagepath = public_path('image/posts');
                 $file->move($imagepath, $filename);
-                
+
                 $gallery = gallery::create([
                     'image' => $filename,
                 ]);
             }
             Post::create([
-                'category_id'=> $request->category,
-                'is_publish'=> $request->is_publish,
-                'title'=> $request->title,
-                'description'=> $request->description,
-                'gallery_id'=> $gallery->id,        
-                
+                'category_id' => $request->category,
+                'is_publish' => $request->is_publish,
+                'title' => $request->title,
+                'description' => $request->description,
+                'gallery_id' => $gallery->id,
+
             ]);
-            
-    
-        }
-        catch(\Exception $ex){
+        } catch (\Exception $ex) {
             DB::rollBack();
             dd($ex->getMessage());
         }
-        
+
         DB::commit();
-        $request->session()->flash('success','Post Created Successfully');
-        
+        $request->session()->flash('success', 'Post Created Successfully');
+
         return to_route('posts.index');
-        
     }
 
     /**
@@ -101,10 +97,55 @@ class PostController extends Controller
     {
         $posts = Post::find($id);
         $posts->title = $request->input('title');
-        
-        
-        $posts->save();
-    
+        $posts->category_id = $request->input('category');
+        $posts->is_publish = $request->input('is_publish');
+        $posts->description = $request->input('description');
+        if ($file = $request->has('file')) {
+            $file = $request->file;
+            $filename = time() . $file->getClientOriginalName();
+            $imagepath = public_path('image/posts');
+            $file->move($imagepath, $filename);
+
+            gallery::findOrFail($id)->update([
+                'image' => $filename,
+            ]);
+        }
+        // if($request->has('file')){
+        //     $file = $request->file;
+        //     $extension = $file->getClientOriginalExtension();
+        //     $filename = time(). '.' . $extension;
+        //     $path = 'image/posts';
+        //     $file->move('image/posts', $filename);
+        // }
+
+        // if($request->hasFile('file'))
+        // {
+        //     $destination = 'image/posts' . $gallery->image;
+        //     if(gallery::exists($destination))
+        //     {
+        //         gallery::destroy($destination);
+        //     }
+        //     $file = $request->file('file');
+        //     $extension = $file->getClientOriginalExtension();
+        //     $filename = time(). '.' . $extension;
+        //     $file->move('image/posts', $filename);
+        //     $gallery->image = $filename;
+        // }
+
+        // if ($request->hasFile('file')) {
+        //     $image_pathi = public_path('image/posts'.$posts->gallery_id);
+        //     if (gallery::exists($image_pathi)) {
+        //         gallery::delete($image_pathi);
+        //     }
+        //     $file = $request->file;
+        //     $filename = time() . $file->getClientOriginalName();
+        //     $imagepath = public_path('image/posts');
+        //     $file->move($imagepath, $filename);
+        //     $posts->file = $filename;
+        // } 
+
+        $posts->update();
+
 
         return redirect('auth/posts');
     }

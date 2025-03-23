@@ -69,7 +69,7 @@
                       </div>
                       <div class="form-group">
                         <label>File upload</label>
-                        <input type="file" name="file" class="form-control" src=" {{ $posts->gallery_id}} "  required>
+                        <input type="file" name="file" class="form-control" src=" {{ $posts->gallery_id}} " >
                         </div>
                       </div>
                       

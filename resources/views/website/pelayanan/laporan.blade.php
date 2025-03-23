@@ -29,6 +29,15 @@
                     merespon dengan baik.</p>
                 <div class="border"></div>
             </div>
+            @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
             <form id="contact-form" method="post" role="form" action="{{ route('laporan.store') }}">
                 @csrf
                 <div class="row">
@@ -126,7 +135,7 @@
                             <label>
                                 <i class='bx bx-phone-call'></i>
                             </label>
-                            <input type="number" value="" name="tlp" id="phone_number"
+                            <input type="number" value="" name="phone_number" id="phone_number"
                                 placeholder="Masukkan Nomor Hp/Wa" class="form-control ">
                         </div>
                     </div>

@@ -12,9 +12,11 @@ use Auth;
 class DashboardController extends Controller
 {
     public function dashboard() {
-        $postCount = Post::count();
-        $aduanCount = Lapor::count();
-        $userCount = User::count();
+        $date = \Carbon\Carbon::today()->subDays(7);
+        $postCount = Post::where('created_at','>=',$date)->count();
+        $aduanCount = Lapor::where('created_at','>=',$date)->count();
+        $userCount = User::where('created_at','>=',$date)->count();
+        
         return view('auth.dashboard', compact('postCount', 'aduanCount', 'userCount'));
     }
 
