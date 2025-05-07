@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\jenisLapor;
+use App\Exports\LaporansExport;
 use App\Models\lapor;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\DB;
 
 class aduanController extends Controller
 {
@@ -13,8 +18,9 @@ class aduanController extends Controller
     public function index()
     {
         $laporans = lapor::with(['jenis'])->get();
-        return view('auth.aduan.index',['laporans' => $laporans]);
+        return view('auth.aduan.index', ['laporans' => $laporans]);
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -27,7 +33,7 @@ class aduanController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(request $request)
     {
         //
     }
@@ -37,7 +43,20 @@ class aduanController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $date = \Carbon\Carbon::today()->subDays(7);
+
+        $startOfWeek = \Carbon\Carbon::now()->startOfWeek();
+        $endOfWeek = \Carbon\Carbon::now()->endOfWeek();
+
+        $laporans = JenisLapor::withCount([
+            'jenis',
+            'jenis as jenis_week_count' => function ($query) use ($startOfWeek, $endOfWeek) {
+                $query->whereBetween('created_at', [$startOfWeek, $endOfWeek]);
+            }
+        ])->get();
+
+        return view('auth.aduan.recap', compact('laporans',));
+        
     }
 
     /**
@@ -62,5 +81,25 @@ class aduanController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    
+
+    public function aduanShow(lapor $jenis)
+    {
+        $laporans = lapor::where('jenis_Lapor_id', $jenis->id)->get();
+        return view('auth.aduan.recapShow', compact('laporans', 'jenis'));
+    }
+
+
+    public function exportExcel()
+    {
+        return Excel::download(new LaporansExport, 'laporans.xlsx');
+    }
+
+    public function exportPdf(lapor $jenis)
+    {
+        $laporans = Lapor::where('jenis_Lapor_id', $jenis->id)->get();
+        return Pdf::loadView('auth.aduan.recapPdf', compact('laporans','jenis'))->setPaper('a4', 'landscape')->download('laporan.pdf');
     }
 }

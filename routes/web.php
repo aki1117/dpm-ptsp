@@ -59,12 +59,16 @@ Auth::routes();
 
 Route::get('/auth/dashboard', [DashboardController::class, 'dashboard'])->name('auth.dashboard')->middleware('auth');
 Route::resource('auth/posts', PostController::class);
-Route::delete('/auth/posts/delete/{id}', [PostController::class, 'destroy'])->name('posts.destroy');
-Route::get('/auth/posts/{id}/edit', [PostController::class, 'edit'])->name('posts.edit');
-Route::put('/auth/posts/{id}', [PostController::class, 'update'])->name('posts.update');   
+// Route::delete('/auth/posts/delete/{id}', [PostController::class, 'destroy'])->name('posts.destroy');
+// Route::get('/auth/posts/{id}/edit', [PostController::class, 'edit'])->name('posts.edit');
+// Route::put('/auth/posts/{id}', [PostController::class, 'update'])->name('posts.update');   
 Route::resource('auth/SP', SPController::class);
 Route::get('/auth/SP/download/{id}', [SPController::class, 'download'])->name('sp.download');
 Route::delete('/auth/SP/delete/{id}', [SPController::class, 'destroy'])->name('sp.destroy');
 Route::resource('/pelayanan/laporan', laporanController::class);
 Route::resource('/auth/aduan', aduanController::class);
+Route::get('/auth/aduan/show', [aduanController::class, 'show'])->name('aduan.recap');
+Route::get('/auth/aduan/show/{jenis}', [aduanController::class, 'aduanShow'])->name('aduan.stores');
+Route::get('/auth/aduan/show/{jenis}/excel', [aduanController::class, 'exportExcel'])->name('laporans.excel');
+Route::get('/auth/aduan/show/{jenis}/pdf', [aduanController::class, 'exportPdf'])->name('laporans.pdf');
 

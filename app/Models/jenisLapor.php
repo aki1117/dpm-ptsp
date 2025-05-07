@@ -13,4 +13,9 @@ class jenisLapor extends Model
     protected $fillable = [ 
         'id', 'name'
     ];
+
+    public function jenis()
+    {
+        return $this->hasMany(lapor::class,  'jenis_Lapor_id');
+    }
 }

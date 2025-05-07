@@ -116,11 +116,19 @@
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('aduan.index')}}">
-              <span class="menu-title">Aduan</span>
-              <i class="mdi mdi-contacts menu-icon"></i>
-            </a>
-          </li>
+              <a class="nav-link" data-bs-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages">
+                <span class="menu-title">Aduan</span>
+                <i class="menu-arrow"></i>
+                <i class="mdi mdi-contacts menu-icon"></i>
+              </a>
+              <div class="collapse" id="general-pages">
+                <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{ route('aduan.index')}}">Lihat Aduan</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('aduan.recap')}}">Rekap Aduan</a></li>
+                </ul>
+              </div>
+            </li>
+         
           <li class="nav-item">
             <a class="nav-link" href="{{ route('SP.index')}}">
               <span class="menu-title">Standar Prosedur</span>
