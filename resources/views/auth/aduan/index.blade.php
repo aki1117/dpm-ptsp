@@ -14,11 +14,15 @@
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable modal-xl">
         <div class="modal-content">
+
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">User Details</h5>
+                <h5 class="modal-title" id="exampleModalLabel">User Details & Status Update</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+
             <div class="modal-body">
+
+                <!-- User Details Table -->
                 <table id="modaldata" class="table table-striped table-hover table-bordered">
                     <thead>
                         <tr>
@@ -38,16 +42,16 @@
                             <th> Lokasi </th>
                             <th> Tujuan pengaduan </th>
                         </tr>
+                    </thead>
                     <tbody>
-                        <tr></tr>
+                        <tr></tr> <!-- This row will be replaced by JS -->
                     </tbody>
                 </table>
-            </div>
-            <form id="status-form" method="POST" data-base-action="{{ route('aduan.update', ['aduan' => '__ID__']) }}">
-                @csrf
-                @method('PUT')
 
-                <div class="modal-body">
+                <!-- Status Update Form -->
+                <form id="status-form" method="POST" data-base-action="{{ route('aduan.update', ['aduan' => '__ID__']) }}">
+                    @csrf
+                    @method('PUT')
                     <div class="mb-3">
                         <label for="status-select" class="form-label fw-semibold">Ubah Status Aduan</label>
                         <select name="status" id="status-select" class="form-select">
@@ -55,27 +59,31 @@
                             <option value="progress">🔄 Diproses</option>
                             <option value="done">✅ Selesai</option>
                         </select>
-                        <div class="form-text">Pilih status yang sesuai untuk laporan ini.</div>
                     </div>
-                </div>
-            </form>
+                </form>
+
+            </div>
 
             <div class="modal-footer">
-                <form id="delete-form" method="POST">
+                <!-- Delete Form -->
+                <form id="delete-form" method="POST" onsubmit="return confirm('Are you sure you want to delete this?');" class="d-inline">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this laporan?')">
-                        Delete
-                    </button>
+                    <button type="submit" class="btn btn-danger me-2">Delete</button>
                 </form>
+
+                <!-- Submit Status Update -->
                 <button type="submit" form="status-form" class="btn btn-success">
                     <i class="fas fa-save me-1"></i> Update Status
                 </button>
+
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
+
         </div>
     </div>
 </div>
+
 
 <div class="main-panel">
     <div class="content-wrapper">
@@ -125,7 +133,14 @@
                                 @foreach($laporans as $laporan)
                                 <tr>
 
-                                    <td> <button class="btn btn-info view-btn" data-id="{{ $laporan->id }}" data-status="{{ $laporan->status ?? 'received' }}">View</button> </td>
+                                    <td> 
+                                        <button
+                                            class="btn btn-info btn-sm view-btn"
+                                            data-id="{{ $laporan->id }}"
+                                            data-status="{{ $laporan->status ?? 'received' }}">
+                                            View
+                                        </button>
+                                    </td>
                                     <td> {{ $laporan->name }} </td>
                                     <td> {{ $laporan->jenisKelamin == 1 ? 'Perempuan' : 'Laki-laki' }} </td>
                                     <td>
@@ -181,22 +196,23 @@
 
             // Handle "View" button click
             $(document).on('click', '.view-btn', function() {
+                let $row = $(this).closest('tr');
                 let laporanId = $(this).data('id');
                 let currentStatus = $(this).data('status') || 'received';
 
-                // Update the form's action URL
+                // Copy the row html into the modal table body
+                let rowHtml = $row.html();
+                $("#modaldata tbody tr").html(rowHtml);
+
+                // Update the status form action and select value
                 let form = $('#status-form');
-                let baseAction = form.data('base-action'); // e.g. '/local/auth/aduan/__ID__'
-                let actionUrl = baseAction.replace('__ID__', laporanId);
+                let actionUrl = form.data('base-action').replace('__ID__', laporanId);
                 form.attr('action', actionUrl);
-
-                // Update hidden input with current status
-                $('#status-input').val(currentStatus);
-
-                // Select dropdown value
                 $('#status-select').val(currentStatus);
 
-                // Show modal
+                // Update delete form action
+                $('#delete-form').attr('action', `/local/auth/aduan/${laporanId}`);
+
                 $('#exampleModal').modal('show');
             });
         });
