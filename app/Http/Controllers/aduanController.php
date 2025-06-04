@@ -56,7 +56,6 @@ class aduanController extends Controller
         ])->get();
 
         return view('auth.aduan.recap', compact('laporans',));
-        
     }
 
     /**
@@ -72,7 +71,16 @@ class aduanController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $aduan = lapor::findOrFail($id);
+
+        $request->validate([
+        'status' => 'required|in:received,progress,done',
+        ]);
+
+        $aduan->status = $request->status;
+        $aduan->save();
+
+        return redirect()->back()->with('success', 'Status updated successfully.');
     }
 
     /**
@@ -80,10 +88,13 @@ class aduanController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $laporan = lapor::findOrFail($id);
+        $laporan->delete();
+
+        return redirect()->back()->with('success', 'Laporan deleted successfully.');
     }
 
-    
+
 
     public function aduanShow(lapor $jenis)
     {
@@ -100,6 +111,6 @@ class aduanController extends Controller
     public function exportPdf(lapor $jenis)
     {
         $laporans = Lapor::where('jenis_Lapor_id', $jenis->id)->get();
-        return Pdf::loadView('auth.aduan.recapPdf', compact('laporans','jenis'))->setPaper('a4', 'landscape')->download('laporan.pdf');
+        return Pdf::loadView('auth.aduan.recapPdf', compact('laporans', 'jenis'))->setPaper('a4', 'landscape')->download('laporan.pdf');
     }
 }
