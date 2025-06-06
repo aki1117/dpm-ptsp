@@ -65,7 +65,7 @@
                       </div>
                       <div class="form-group">
                         <label>Description</label>
-                        <textarea id="summernote" name="description" class="form-control" cols="30" rows="10" required>{{ $posts->description }}</textarea>
+                        <textarea id="description" name="description" class="form-control" cols="30" rows="10" required>{{ $posts->description }}</textarea>
                       </div>
                       <div class="form-group">
                         <label>File upload</label>

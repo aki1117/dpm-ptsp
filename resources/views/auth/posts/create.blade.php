@@ -46,7 +46,7 @@
               <div class="form-group">
                 <label>category</label>
                 <select name="category" class="form-control" required>
-                  <option disabled selected>choose option</option>
+                  
                   @if (count($categories) > 0)
                   @foreach ($categories as $category)
                   <option @selected( old('category')==$category->id ) value="{{ $category->id }}">{{ $category->name }}</option>
@@ -64,7 +64,7 @@
               </div>
               <div class="form-group">
                 <label>Description</label>
-                <textarea id="summernote" name="description" class="form-control" cols="30" rows="10" required>{{ old('description') }}</textarea>
+                <textarea id="description" name="description" class="form-control" cols="30" rows="10" required>{{ old('description') }}</textarea>
               </div>
               <div class="form-group">
                 <label>File upload</label>

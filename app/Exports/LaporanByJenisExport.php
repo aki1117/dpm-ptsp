@@ -7,11 +7,20 @@ use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\WithMapping;
 
-class LaporansExport implements FromCollection, WithMapping, WithHeadings
+class LaporanByJenisExport implements FromCollection, WithHeadings, WithMapping
 {
-   public function collection()
+    protected $jenis_id;
+
+    public function __construct($jenis_id)
     {
-        return lapor::with('jenis')->get();
+        $this->jenis_id = $jenis_id;
+    }
+
+    public function collection()
+    {
+        return lapor::with('jenis')
+            ->where('jenis_Lapor_id', $this->jenis_id)
+            ->get();
     }
 
     public function map($laporan): array
@@ -23,7 +32,7 @@ class LaporansExport implements FromCollection, WithMapping, WithHeadings
             $laporan->pekerjaan,
             $laporan->email,
             $laporan->subjek,
-            $laporan->status ?? 'received', // Fallback if null
+            $laporan->status ?? 'received',
             optional($laporan->jenis)->name,
             $laporan->created_at->format('d-m-Y'),
         ];

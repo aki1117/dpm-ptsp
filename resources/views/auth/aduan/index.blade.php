@@ -53,7 +53,7 @@
                     @csrf
                     @method('PUT')
                     <div class="mb-3">
-                        <label for="status-select" class="form-label fw-semibold">Ubah Status Aduan</label>
+                        <label for="status-select" class="form-label fw-semibold">Status Aduan</label>
                         <select name="status" id="status-select" class="form-select">
                             <option value="received">📥 Diterima</option>
                             <option value="progress">🔄 Diproses</option>
@@ -104,6 +104,8 @@
                     <div class="card-body">
                         @if(count($laporans)>0 )
                         <h4 class="card-title">Posts</h4>
+                        <a href="{{ route('aduan.export.excel') }}" class="btn btn-success">Export to Excel</a>
+                        <a href="{{ route('aduan.export.pdf') }}" class="btn btn-danger">Export to PDF</a>
                         <p class="card-description"> Add class <code>.table-striped</code>
                         </p>
 

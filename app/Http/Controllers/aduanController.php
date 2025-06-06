@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\jenisLapor;
 use App\Exports\LaporansExport;
+use App\Exports\LaporanByJenisExport;
 use App\Models\lapor;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
@@ -74,7 +75,7 @@ class aduanController extends Controller
         $aduan = lapor::findOrFail($id);
 
         $request->validate([
-        'status' => 'required|in:received,progress,done',
+            'status' => 'required|in:received,progress,done',
         ]);
 
         $aduan->status = $request->status;
@@ -96,7 +97,7 @@ class aduanController extends Controller
 
 
 
-    public function aduanShow(lapor $jenis)
+    public function aduanShow(jenisLapor $jenis)
     {
         $laporans = lapor::where('jenis_Lapor_id', $jenis->id)->get();
         return view('auth.aduan.recapShow', compact('laporans', 'jenis'));
@@ -108,9 +109,20 @@ class aduanController extends Controller
         return Excel::download(new LaporansExport, 'laporans.xlsx');
     }
 
-    public function exportPdf(lapor $jenis)
+    public function exportExcelByJenis(jenisLapor $jenis)
+    {
+        return Excel::download(new LaporanByJenisExport($jenis->id), 'laporan.xlsx');
+    }
+
+    public function exportPdf(jenisLapor $jenis)
     {
         $laporans = Lapor::where('jenis_Lapor_id', $jenis->id)->get();
+        return Pdf::loadView('auth.aduan.recapPdf', compact('laporans', 'jenis'))->setPaper('a4', 'landscape')->download('laporan.pdf');
+    }
+
+    public function exportPdfall(lapor $jenis)
+    {
+        $laporans = Lapor::with('jenis')->get();
         return Pdf::loadView('auth.aduan.recapPdf', compact('laporans', 'jenis'))->setPaper('a4', 'landscape')->download('laporan.pdf');
     }
 }

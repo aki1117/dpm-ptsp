@@ -68,7 +68,9 @@ Route::delete('/auth/SP/delete/{id}', [SPController::class, 'destroy'])->name('s
 Route::resource('/pelayanan/laporan', laporanController::class);
 Route::resource('/auth/aduan', aduanController::class);
 Route::get('/auth/aduan/show', [aduanController::class, 'show'])->name('aduan.recap');
+Route::get('/local/auth/aduan/export/excel', [aduanController::class, 'exportExcel'])->name('aduan.export.excel');
+Route::get('/local/auth/aduan/export/pdf', [aduanController::class, 'exportPdfall'])->name('aduan.export.pdf');
 Route::get('/auth/aduan/show/{jenis}', [aduanController::class, 'aduanShow'])->name('aduan.stores');
-Route::get('/auth/aduan/show/{jenis}/excel', [aduanController::class, 'exportExcel'])->name('laporans.excel');
+Route::get('/auth/aduan/show/{jenis}/excel', [aduanController::class, 'exportExcelByJenis'])->name('laporans.excel');
 Route::get('/auth/aduan/show/{jenis}/pdf', [aduanController::class, 'exportPdf'])->name('laporans.pdf');
 
