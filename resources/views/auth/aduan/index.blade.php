@@ -88,7 +88,7 @@
 <div class="main-panel">
     <div class="content-wrapper">
         <div class="page-header">
-            <h3 class="page-title"> Posts </h3>
+            <h3 class="page-title"> Semua Aduan </h3>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#">Aduan</a></li>
@@ -103,7 +103,7 @@
                 <div class="card">
                     <div class="card-body">
                         @if(count($laporans)>0 )
-                        <h4 class="card-title">Posts</h4>
+                        <h4 class="card-title">Aduan</h4>
                         <a href="{{ route('aduan.export.excel') }}" class="btn btn-success">Export to Excel</a>
                         <a href="{{ route('aduan.export.pdf') }}" class="btn btn-danger">Export to PDF</a>
                         <p class="card-description"> Add class <code>.table-striped</code>

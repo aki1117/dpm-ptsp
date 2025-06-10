@@ -5,9 +5,12 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
+use Illuminate\Auth\Events\Registered;
 
 class RegisterController extends Controller
 {
@@ -29,7 +32,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = 'auth/dashboard';
+    protected $redirectTo = 'auth/registerlist';
 
     /**
      * Create a new controller instance.
@@ -38,7 +41,37 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('auth');
+    }
+
+    public function index()
+    {
+        $users = User::all();
+        // return view('auth/posts/create')->with('categories', $categories);
+        return view('auth.register.index', ['users' => $users]);
+    }
+
+    public function destroy(string $id)
+    {
+        if (Auth::id() == $id) {
+            return redirect()->back()->with('error', 'You cannot delete your own account while logged in.');
+        }
+
+        $user = User::findOrFail($id);
+        $user->delete();
+
+        return redirect('auth/registerlist')->with('Success', 'Data berhasil dihapus');
+    }
+
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+        // Do NOT call $this->guard()->login($user); to avoid auto-login
+
+        return redirect('auth/registerlist')->with('success', 'Registrasi berhasil. Silakan login.');
     }
 
     /**

@@ -9,14 +9,12 @@ class WebsiteController extends Controller
 {
     public function home(){
         $posts = post::where('is_publish', post::Published)->get();
-        // return view('auth/posts/create')->with('categories', $categories);
         return view('website.index',['posts'=>$posts]);
     }
 
     public function create()
     {
         $laporans = jenisLapor::all();
-        // return view('auth/posts/create')->with('categories', $categories);
         return view('website.laporan',['laporans'=>$laporans]);
     }
 

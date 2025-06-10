@@ -7,49 +7,44 @@
 <div class="main-panel">
     <div class="content-wrapper">
         <div class="page-header">
-            <h3 class="page-title"> Standar Prosedur </h3>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{route('SP.create')}}">Buat</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Standar Prosedur</li>
+                    <li class="breadcrumb-item"><a href="{{ route('register') }}">Register</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">List Admin</li>
                 </ol>
             </nav>
         </div>
         <div class="row">
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
-                    @csrf
                     <div class="card-body">
-                        @if(is_countable($posts) )
-                        <h4 class="card-title">Standar Prosedur</h4>
+                        @if(count($users)>0 )
+                        <h4 class="card-title">List Admin</h4>
                         <p class="card-description"> Add class <code>.table-striped</code>
                         </p>
 
                         <table id="posts-table" class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th> No. </th>
-                                    <th> File </th>
-                                    <th> date </th>
+                                    <th> Nama </th>
+                                    <th> Email </th>
                                     <th> Action </th>
                                 </tr>
                             </thead>
 
                             <tbody>
-                                @foreach($posts as $post)
+                                @foreach($users as $user)
                                 <tr>
-                                    <td> {{ $post->id }} </td>
-                                    <td> {{ $post->path }} </td>
-                                    <td> {{ $post->created_at }} </td>
+
+                                    <td> {{ $user->name }} </td>
+
+                                    <td> {{ $user->email }} </td>
                                     <td>
-                                        <a href="{{route('sp.download', $post->id)}}" class="btn btn-sm btn-success">Download</a>
-                                        
-                                        <form action="{{ route('sp.destroy', $post->id) }}" method="POST" class="btn btn-sm btn-danger">
+                                        <form action="{{ route('register.destroy', $user->id) }}" method="POST" class="btn btn-sm btn-danger">
                                             @csrf
                                             @method('delete')
                                             <button type="submit" class="fa fa-trash" onclick=""></button>
                                         </form>
-
                                     </td>
                                 </tr>
                                 @endforeach
@@ -65,7 +60,6 @@
 
         </div>
     </div>
-    
     @endsection
 
     @section('scripts')

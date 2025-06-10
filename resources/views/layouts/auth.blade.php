@@ -60,14 +60,14 @@
               </div>
             </a>
             <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
-              
+
               <a class="dropdown-item" href="#">
                 <i class="mdi mdi-logout me-2 text-primary"></i> Signout </a>
             </div>
           </li>
-          
-          
-          
+
+
+
           <li class="nav-item nav-logout d-none d-lg-block">
             <form method="post" id="logout-form" action="{{ route('logout') }}">
               @csrf
@@ -77,7 +77,7 @@
             </form>
 
           </li>
-          
+
         </ul>
         <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
           <span class="mdi mdi-menu"></span>
@@ -102,6 +102,7 @@
               <i class="mdi mdi-home menu-icon"></i>
             </a>
           </li>
+
           <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
               <span class="menu-title">Berita</span>
@@ -115,28 +116,46 @@
               </ul>
             </div>
           </li>
+
           <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages">
-                <span class="menu-title">Aduan</span>
-                <i class="menu-arrow"></i>
-                <i class="mdi mdi-contacts menu-icon"></i>
-              </a>
-              <div class="collapse" id="general-pages">
-                <ul class="nav flex-column sub-menu">
+            <a class="nav-link" data-bs-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages">
+              <span class="menu-title">Aduan</span>
+              <i class="menu-arrow"></i>
+              <i class="mdi mdi-contacts menu-icon"></i>
+            </a>
+            <div class="collapse" id="general-pages">
+              <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{ route('aduan.index')}}">Lihat Aduan</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{ route('aduan.recap')}}">Rekap Aduan</a></li>
-                </ul>
-              </div>
-            </li>
-         
+              </ul>
+            </div>
+          </li>
+
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('SP.index')}}">
+            <a class="nav-link" data-bs-toggle="collapse" href="#standar-list" aria-expanded="false" aria-controls="#standar-list">
               <span class="menu-title">Standar Prosedur</span>
+              <i class="menu-arrow"></i>
               <i class="mdi mdi-format-list-bulleted menu-icon"></i>
             </a>
+            <div class="collapse" id="standar-list">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{ route('SP.index')}}">Lihat Standar Prosedur</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('SP.create')}}">Buat Standar Prosedur</a></li>
+              </ul>
+            </div>
           </li>
-        
-
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('registerlist')}}">
+              <span class="menu-title">List admin</span>
+              <i class="mdi mdi-medical-bag menu-icon"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('register')}}">
+              <span class="menu-title">Register</span>
+              <i class="mdi mdi-table-large menu-icon"></i>
+            </a>
+          </li>
         </ul>
       </nav>
 
@@ -146,8 +165,7 @@
         <div class="container-fluid d-flex justify-content-between">
           <span class="text-muted d-block text-center text-sm-start d-sm-inline-block">Copyright © bootstrapdash.com
             2021</span>
-          <span class="float-none float-sm-end mt-1 mt-sm-0 text-end"> Free <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank">Bootstrap admin
-              template</a> from Bootstrapdash.com</span>
+          
         </div>
       </footer>
       <!-- partial -->

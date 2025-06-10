@@ -12,7 +12,10 @@ class lapor extends Model
     public const Perempuan = 1;
     public const Laki = 0;
 
-    protected $fillable = ['jenis_Lapor_id', 'name', 'jenisKelamin', 'rumah', 'pekerjaan', 'kantor', 'email', 'ktp', 'phone_number', 'subjek', 'isian', 'tanggal_kejadian', 'lokasi', 'tujuan_pengaduan','status'];
+    protected $fillable = ['jenis_Lapor_id', 'name', 'jenisKelamin', 'rumah', 'pekerjaan', 'kantor', 
+                        'email', 'ktp', 'phone_number', 'subjek', 'isian', 'tanggal_kejadian',
+                         'lokasi', 'tujuan_pengaduan','status'];
+
     public function jenis()
     {
         return $this->belongsTo(jenisLapor::class,  'jenis_Lapor_id', 'id');
