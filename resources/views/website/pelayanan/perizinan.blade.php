@@ -28,6 +28,7 @@
                         <div class="design-content">
                             <div class="section-title two">
                                 <!-- <img src="https://dpmptsp.konkepkab.go.id/public/assetsa/img/it-startup/baner.jpg" alt="Design"> -->
+                                 <h2>Regulasi Dinas Penanaman Modal dan Perizinan Terpadu Satu Pintu</h2>
                                 <br><br>
                                 <table id="posts-table" class="table table-striped">
                                     <thead>

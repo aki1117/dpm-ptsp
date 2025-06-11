@@ -427,7 +427,7 @@
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li><a class="dropdown-item" href="{{ route('laporan.index') }}">Pengaduan</a></li>
-                <li><a class="dropdown-item" href="{{ route('perizinan') }}">Standar Pelayanan</a></li>
+                <li><a class="dropdown-item" href="{{ route('perizinan') }}"> Regulasi Standar Pelayanan</a></li>
                 <!-- <li><a class="dropdown-item" href="onepage-text.html">SP (Standar Pelayanan)</a></li>
                 <li><a class="dropdown-item" href="onepage-text.html">SOP</a></li> -->
               </ul>

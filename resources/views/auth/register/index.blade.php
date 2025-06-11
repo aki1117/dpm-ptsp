@@ -40,10 +40,12 @@
 
                                     <td> {{ $user->email }} </td>
                                     <td>
-                                        <form action="{{ route('register.destroy', $user->id) }}" method="POST" class="btn btn-sm btn-danger">
+                                        <form action="{{ route('register.destroy', $user->id) }}" method="POST" style="display: inline;">
                                             @csrf
                                             @method('delete')
-                                            <button type="submit" class="fa fa-trash" onclick=""></button>
+                                            <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this user?')">
+                                                <i class="fa fa-trash"></i> Delete
+                                            </button>
                                         </form>
                                     </td>
                                 </tr>

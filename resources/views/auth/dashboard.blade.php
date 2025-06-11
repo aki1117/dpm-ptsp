@@ -47,7 +47,7 @@
                     <img src="{{ asset('assets/auth/images/dashboard/circle.svg') }}" class="card-img-absolute" alt="circle-image" />
                     <h4 class="font-weight-normal mb-3">Visitors Online <i class="mdi mdi-diamond mdi-24px float-right"></i>
                     </h4>
-                    <h2 class="mb-5">{{ $userCount }}</h2>
+                    <h2 class="mb-5">1</h2>
                     <!-- <h6 class="card-text">Increased by 5%</h6> -->
                   </div>
                 </div>
