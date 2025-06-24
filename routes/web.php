@@ -25,12 +25,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-
-//     return view('website.index');
-//     // auth()->logout();
-//     // return 'home page';
-// });
 Route::controller(WebsiteController::class)->group(function () {
     Route::get('/', 'home')->name('home');
     Route::get('/contact', 'contact')->name('contact');
