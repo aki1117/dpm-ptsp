@@ -16,7 +16,7 @@ class mediaController extends Controller
     }
 
     public function berita() {
-        $posts =  post::where('is_publish', post::Published)->simplePaginate(2);
+        $posts =  post::where('is_publish', post::Published)->simplePaginate(3);
         return view("website.mediapublikasi.beritahome", ["posts"=> $posts]);
     }
 

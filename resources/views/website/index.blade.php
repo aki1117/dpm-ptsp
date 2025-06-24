@@ -283,8 +283,7 @@ Start Blog Section
                 <div class="title text-center ">
                     <h2> Latest <span class="color">News</span></h2>
                     <div class="border"></div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus facere accusamus, reprehenderit
-                        libero inventore nam.</p>
+                    <p>Berita terknini mengenai DPM-PTSP Konawe Kepulauan</p>
                 </div>
             </div>
             <!-- /section title -->
@@ -294,7 +293,6 @@ Start Blog Section
             <!-- single blog post -->
             @foreach ($posts as $post)
             <article class="col-lg-4 col-md-6">
-            
                 <div class="post-item">
                     <div class="media-wrapper">
                         <img loading="lazy" src="{{ $post->gallery->image }}" alt="amazing caves coverimage"   width="420" height="300">
@@ -303,7 +301,7 @@ Start Blog Section
                     <div class="content">
                         <h3><a href="{{ route('posts.berita', $post->id)}}">{{ $post->title }}</a></h3>
                         <i class="calendar"> {{ date('d-M-Y', strtotime($post->created_at)) }}</i>
-                        <p> {{!! Str::limit($post->description, 100, '...') !!}}</p>
+                        <p> {{Str::limit($post->description, 100, '...') }}</p>
                         <a class="btn btn-main" href="{{ route('posts.berita', $post->id)}}">Read more</a>
                     </div>
                 </div>
