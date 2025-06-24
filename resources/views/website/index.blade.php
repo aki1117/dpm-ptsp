@@ -164,62 +164,13 @@ Start Counter Section
             <div class="col-xl-6 col-lg-8 text-center">
                 <div class="title">
                     <h2>Layanan Informasi Publik</h2>
-                    <p>Vestibulum nisl tortor, consectetur quis imperdiet bibendum, laoreet sed arcu. Sed condimentum
-                        iaculis ex, in faucibus lorem accumsan non. Donec mattis tincidunt metus. Morbi sed tortor a
-                        risus luctus dignissim.</p>
+                    <p>Unduh Regulasi Standar Pelayanan Dinas Penanaman modal dan Perizinan Terpadu Satu Pintu</p>
+                        <br>
+                    <a href="{{ route('perizinan') }}" class="btn btn-main">Unduh Disini</a>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <!-- first count item -->
-            <div class="col-md-3 col-sm-6 col-xs-6 text-center ">
-                <div class="counters-item">
-                    <i class="tf-ion-ios-alarm-outline"></i>
-                    <div>
-                        <span class="counter" data-count="150">0</span>
-                    </div>
-                    <h3>Izin Usaha</h3>
-                </div>
-            </div>
-            <!-- end first count item -->
-
-            <!-- second count item -->
-            <div class="col-md-3 col-sm-6 col-xs-6 text-center ">
-                <div class="counters-item">
-                    <i class="tf-ion-ios-analytics-outline"></i>
-                    <div>
-                        <span class="counter" data-count="130">0</span>
-                    </div>
-                    <h3>Izin Sekolah</h3>
-                </div>
-            </div>
-            <!-- end second count item -->
-
-            <!-- third count item -->
-            <div class="col-md-3 col-sm-6 col-xs-6 text-center ">
-                <div class="counters-item">
-                    <i class="tf-ion-ios-compose-outline"></i>
-                    <div>
-                        <span class="counter" data-count="99">0</span>
-                    </div>
-                    <h3>Izin Rumah sakit</h3>
-
-                </div>
-            </div>
-            <!-- end third count item -->
-
-            <!-- fourth count item -->
-            <div class="col-md-3 col-sm-6 col-xs-6 text-center ">
-                <div class="counters-item kill-border">
-                    <i class="tf-ion-ios-bolt-outline"></i>
-                    <div>
-                        <span class="counter" data-count="250">0</span>
-                    </div>
-                    <h3>Izin Damkar</h3>
-                </div>
-            </div>
-            <!-- end fourth count item -->
-        </div> <!-- end row -->
+        
     </div> <!-- end container -->
 </section> <!-- end section -->
 
@@ -240,7 +191,7 @@ Start Counter Section
 							<i class="tf-ion-chatbubbles"></i>
 							<!-- client info -->
 							<div class="client-details">
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum nulla, soluta dolorum. Eos earum, magni asperiores, unde corporis labore, enim, voluptatum officiis voluptates alias natus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, officia. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, quia?</p>
+								<p>Halo, selamat datang di sistem pengaduan warga Konawe Kepulauan. Di sini, kamu bisa menyampaikan keluhan atau saran dengan mudah dan langsung. Kami siap mendengar dan berbenah demi memberikan layanan yang lebih baik untuk semua. Terima kasih sudah ikut berkontribusi!</p>
 							</div>
 							<!-- /client info -->
 							<!-- client photo -->
@@ -260,7 +211,7 @@ Start Counter Section
 							<i class="tf-ion-chatbubbles"></i>
 							<!-- client info -->
 							<div class="client-details">
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum nulla, soluta dolorum. Eos earum, magni asperiores, unde corporis labore, enim, voluptatum officiis voluptates alias natus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, officia. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, quia?</p>
+								<p>Selamat datang di sistem pengaduan warga Kabupaten Konawe Kepulauan. Platform ini dibuat untuk memudahkan masyarakat dalam menyampaikan keluhan, saran, atau masukan terkait layanan yang ada. Kami berusaha memberikan respon yang cepat dan terbuka agar pelayanan publik semakin baik. Terima kasih atas partisipasinya!</p>
 							</div>
 							<!-- /client info -->
 							<!-- client photo -->
@@ -280,7 +231,7 @@ Start Counter Section
 							<i class="tf-ion-chatbubbles"></i>
 							<!-- client info -->
 							<div class="client-details">
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum nulla, soluta dolorum. Eos earum, magni asperiores, unde corporis labore, enim, voluptatum officiis voluptates alias natus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, officia. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, quia?</p>
+								<p>Halo dan selamat datang di website pengaduan warga DPMPTSP Kabupaten Konawe Kepulauan. Sebagai Kepala Bidang Perizinan, saya sangat mendukung kehadiran sistem ini agar masyarakat bisa lebih mudah menyampaikan keluhan atau saran, terutama terkait layanan perizinan. Kami ingin pelayanan yang lebih cepat, terbuka, dan sesuai kebutuhan warga. Terima kasih atas kepercayaannya, dan silakan manfaatkan layanan ini sebaik mungkin.</p>
 							</div>
 							<!-- /client info -->
 							<!-- client photo -->
@@ -300,7 +251,7 @@ Start Counter Section
 							<i class="tf-ion-chatbubbles"></i>
 							<!-- client info -->
 							<div class="client-details">
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum nulla, soluta dolorum. Eos earum, magni asperiores, unde corporis labore, enim, voluptatum officiis voluptates alias natus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, officia. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, quia?</p>
+								<p>Selamat datang di Sistem Informasi Pengaduan Warga Kabupaten Konawe Kepulauan. Melalui platform ini, kami berharap masyarakat bisa lebih mudah menyampaikan keluhan, saran, atau masukan terkait pelayanan kami. Kami berkomitmen untuk menanggapi setiap laporan dengan cepat dan transparan demi pelayanan yang lebih baik ke depannya. Terima kasih atas partisipasi Anda!</p>
 							</div>
 							<!-- /client info -->
 							<!-- client photo -->

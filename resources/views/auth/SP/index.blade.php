@@ -10,7 +10,7 @@
             <h3 class="page-title"> Standar Prosedur </h3>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{route('SP.create')}}">Buat</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('SP.create')}}">Upload</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Standar Prosedur</li>
                 </ol>
             </nav>

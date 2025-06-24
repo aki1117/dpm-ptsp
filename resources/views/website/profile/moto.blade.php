@@ -34,7 +34,7 @@
                             </div>
                             <p>
                             <h3>Visi</h3>
-                            "Menjadi lembaga yang mampu mewujudkan penanaman modal yang berdaya saing menuju Riau sebagai daerah tujuan investasi"
+                            "Menjadi lembaga yang mampu mewujudkan penanaman modal yang berdaya saing menuju Konawe Kepulauan sebagai daerah tujuan investasi"
                             </p>
                             <h3>Misi</h3>
                             <ul>

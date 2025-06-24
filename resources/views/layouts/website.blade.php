@@ -438,8 +438,8 @@
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li><a class="dropdown-item" href="{{ route('berita') }}">Berita</a></li>
-                <li><a class="dropdown-item" href="{{ route('galeri') }}">Galeri foto</a></li>
-                <li><a class="dropdown-item" href="{{ route('peta') }}">Peta Rencana</a></li>
+                <!-- <li><a class="dropdown-item" href="{{ route('galeri') }}">Galeri foto</a></li>
+                <li><a class="dropdown-item" href="{{ route('peta') }}">Peta Rencana</a></li> -->
 
               </ul>
             </li>

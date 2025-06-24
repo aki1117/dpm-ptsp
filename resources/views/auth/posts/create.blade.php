@@ -46,7 +46,6 @@
               <div class="form-group">
                 <label>category</label>
                 <select name="category" class="form-control" required>
-                  
                   @if (count($categories) > 0)
                   @foreach ($categories as $category)
                   <option @selected( old('category')==$category->id ) value="{{ $category->id }}">{{ $category->name }}</option>

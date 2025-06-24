@@ -140,7 +140,7 @@
             <div class="collapse" id="standar-list">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{ route('SP.index')}}">Lihat Standar Prosedur</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{ route('SP.create')}}">Buat Standar Prosedur</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('SP.create')}}">Upload Standar Prosedur</a></li>
               </ul>
             </div>
           </li>

@@ -38,7 +38,7 @@ class SPController extends Controller
             DB::beginTransaction();
             if($file = $request->has('path')){
                 $file = $request->path;
-                $filename = time().$file->getClientOriginalName();
+                $filename = $file->getClientOriginalName();
                 $filepath = public_path('SP');  
                 $file->move($filepath, $filename);
                 
